@@ -1,0 +1,448 @@
+{
+  "scenarioId": "westside-cascade",
+  "startSimTime": "2026-07-02T17:20:00",
+  "minutesPerTick": 5,
+  "entities": [
+    {
+      "entityType": "outage",
+      "entityId": "OUT-1",
+      "state": {
+        "id": "OUT-1",
+        "substation": "SUB-W1",
+        "zones": [
+          {
+            "zone": "Z-01",
+            "level": "out"
+          },
+          {
+            "zone": "Z-05",
+            "level": "out"
+          }
+        ],
+        "customersOut": 15125,
+        "cause": "Storm-damaged feeder F-114 at SUB-W1 (SCADA lockout)",
+        "startedAtTick": 0,
+        "status": "active"
+      }
+    },
+    {
+      "entityType": "corridor",
+      "entityId": "COR-RIVER-W",
+      "state": {
+        "corridorId": "COR-RIVER-W",
+        "level": 0.62,
+        "trend": "rising",
+        "signalStatus": "dark"
+      }
+    },
+    {
+      "entityType": "corridor",
+      "entityId": "COR-MAIN-W",
+      "state": {
+        "corridorId": "COR-MAIN-W",
+        "level": 0.78,
+        "trend": "rising",
+        "signalStatus": "dark"
+      }
+    },
+    {
+      "entityType": "corridor",
+      "entityId": "COR-MAIN-BRIDGE",
+      "state": {
+        "corridorId": "COR-MAIN-BRIDGE",
+        "level": 0.7,
+        "trend": "rising",
+        "signalStatus": "normal"
+      }
+    },
+    {
+      "entityType": "corridor",
+      "entityId": "COR-MAIN-E",
+      "state": {
+        "corridorId": "COR-MAIN-E",
+        "level": 0.66,
+        "trend": "steady",
+        "signalStatus": "normal"
+      }
+    },
+    {
+      "entityType": "corridor",
+      "entityId": "COR-CEDAR",
+      "state": {
+        "corridorId": "COR-CEDAR",
+        "level": 0.58,
+        "trend": "rising",
+        "signalStatus": "normal"
+      }
+    },
+    {
+      "entityType": "corridor",
+      "entityId": "COR-SOUTH-W",
+      "state": {
+        "corridorId": "COR-SOUTH-W",
+        "level": 0.44,
+        "trend": "steady",
+        "signalStatus": "normal"
+      }
+    },
+    {
+      "entityType": "corridor",
+      "entityId": "COR-DELTA",
+      "state": {
+        "corridorId": "COR-DELTA",
+        "level": 0.38,
+        "trend": "steady",
+        "signalStatus": "normal"
+      }
+    },
+    {
+      "entityType": "corridor",
+      "entityId": "COR-EAST-N",
+      "state": {
+        "corridorId": "COR-EAST-N",
+        "level": 0.55,
+        "trend": "steady",
+        "signalStatus": "normal"
+      }
+    },
+    {
+      "entityType": "corridor",
+      "entityId": "COR-EAST-S",
+      "state": {
+        "corridorId": "COR-EAST-S",
+        "level": 0.42,
+        "trend": "steady",
+        "signalStatus": "normal"
+      }
+    },
+    {
+      "entityType": "corridor",
+      "entityId": "COR-CENTRAL",
+      "state": {
+        "corridorId": "COR-CENTRAL",
+        "level": 0.6,
+        "trend": "steady",
+        "signalStatus": "normal"
+      }
+    },
+    {
+      "entityType": "shelter",
+      "entityId": "SHL-LHS",
+      "state": {
+        "shelterId": "SHL-LHS",
+        "occupied": 60,
+        "trendPerHour": 45,
+        "powerStatus": "grid",
+        "acceptingNew": true
+      }
+    },
+    {
+      "entityType": "shelter",
+      "entityId": "SHL-WCC",
+      "state": {
+        "shelterId": "SHL-WCC",
+        "occupied": 40,
+        "trendPerHour": 30,
+        "powerStatus": "grid",
+        "acceptingNew": true
+      }
+    },
+    {
+      "entityType": "shelter",
+      "entityId": "SHL-FGP",
+      "state": {
+        "shelterId": "SHL-FGP",
+        "occupied": 55,
+        "trendPerHour": 20,
+        "powerStatus": "grid",
+        "acceptingNew": true
+      }
+    },
+    {
+      "entityType": "shelter",
+      "entityId": "SHL-CLB",
+      "state": {
+        "shelterId": "SHL-CLB",
+        "occupied": 25,
+        "trendPerHour": 10,
+        "powerStatus": "grid",
+        "acceptingNew": true
+      }
+    },
+    {
+      "entityType": "shelter",
+      "entityId": "SHL-NGC",
+      "state": {
+        "shelterId": "SHL-NGC",
+        "occupied": 20,
+        "trendPerHour": 8,
+        "powerStatus": "grid",
+        "acceptingNew": true
+      }
+    },
+    {
+      "entityType": "shelter",
+      "entityId": "SHL-DRC",
+      "state": {
+        "shelterId": "SHL-DRC",
+        "occupied": 30,
+        "trendPerHour": 12,
+        "powerStatus": "grid",
+        "acceptingNew": true
+      }
+    },
+    {
+      "entityType": "facilityPower",
+      "entityId": "HOSP-RG",
+      "state": {
+        "facilityId": "HOSP-RG",
+        "powerStatus": "backup",
+        "backupRemainingH": 8
+      }
+    },
+    {
+      "entityType": "facilityPower",
+      "entityId": "HOSP-SA",
+      "state": {
+        "facilityId": "HOSP-SA",
+        "powerStatus": "grid",
+        "backupRemainingH": null
+      }
+    },
+    {
+      "entityType": "facilityPower",
+      "entityId": "HOSP-EM",
+      "state": {
+        "facilityId": "HOSP-EM",
+        "powerStatus": "grid",
+        "backupRemainingH": null
+      }
+    },
+    {
+      "entityType": "facilityPower",
+      "entityId": "WTR-1",
+      "state": {
+        "facilityId": "WTR-1",
+        "powerStatus": "grid",
+        "backupRemainingH": null
+      }
+    },
+    {
+      "entityType": "facilityPower",
+      "entityId": "SIG-01",
+      "state": {
+        "facilityId": "SIG-01",
+        "powerStatus": "out",
+        "backupRemainingH": null
+      }
+    },
+    {
+      "entityType": "facilityPower",
+      "entityId": "SIG-02",
+      "state": {
+        "facilityId": "SIG-02",
+        "powerStatus": "out",
+        "backupRemainingH": null
+      }
+    },
+    {
+      "entityType": "facilityPower",
+      "entityId": "SIG-03",
+      "state": {
+        "facilityId": "SIG-03",
+        "powerStatus": "out",
+        "backupRemainingH": null
+      }
+    },
+    {
+      "entityType": "facilityPower",
+      "entityId": "SIG-04",
+      "state": {
+        "facilityId": "SIG-04",
+        "powerStatus": "out",
+        "backupRemainingH": null
+      }
+    },
+    {
+      "entityType": "facilityPower",
+      "entityId": "SIG-05",
+      "state": {
+        "facilityId": "SIG-05",
+        "powerStatus": "out",
+        "backupRemainingH": null
+      }
+    },
+    {
+      "entityType": "facilityPower",
+      "entityId": "SIG-06",
+      "state": {
+        "facilityId": "SIG-06",
+        "powerStatus": "out",
+        "backupRemainingH": null
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "CREW-1",
+      "state": {
+        "unitId": "CREW-1",
+        "kind": "utility_crew",
+        "zone": "Z-06",
+        "status": "available",
+        "capacity": null
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "CREW-2",
+      "state": {
+        "unitId": "CREW-2",
+        "kind": "utility_crew",
+        "zone": "Z-10",
+        "status": "available",
+        "capacity": null
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "CREW-3",
+      "state": {
+        "unitId": "CREW-3",
+        "kind": "utility_crew",
+        "zone": "Z-03",
+        "status": "available",
+        "capacity": null
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "CREW-4",
+      "state": {
+        "unitId": "CREW-4",
+        "kind": "utility_crew",
+        "zone": "Z-14",
+        "status": "available",
+        "capacity": null
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "BUS-1",
+      "state": {
+        "unitId": "BUS-1",
+        "kind": "bus_group",
+        "zone": "Z-06",
+        "status": "available",
+        "capacity": 40
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "BUS-2",
+      "state": {
+        "unitId": "BUS-2",
+        "kind": "bus_group",
+        "zone": "Z-07",
+        "status": "available",
+        "capacity": 40
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "BUS-3",
+      "state": {
+        "unitId": "BUS-3",
+        "kind": "bus_group",
+        "zone": "Z-15",
+        "status": "available",
+        "capacity": 40
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "GEN-1",
+      "state": {
+        "unitId": "GEN-1",
+        "kind": "generator",
+        "zone": "Z-10",
+        "status": "available",
+        "capacity": null
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "GEN-2",
+      "state": {
+        "unitId": "GEN-2",
+        "kind": "generator",
+        "zone": "Z-07",
+        "status": "available",
+        "capacity": null
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "PUMP-1",
+      "state": {
+        "unitId": "PUMP-1",
+        "kind": "pump_crew",
+        "zone": "Z-14",
+        "status": "available",
+        "capacity": null
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "PUMP-2",
+      "state": {
+        "unitId": "PUMP-2",
+        "kind": "pump_crew",
+        "zone": "Z-06",
+        "status": "available",
+        "capacity": null
+      }
+    },
+    {
+      "entityType": "resourceUnit",
+      "entityId": "CMD-1",
+      "state": {
+        "unitId": "CMD-1",
+        "kind": "mobile_command",
+        "zone": "Z-10",
+        "status": "available",
+        "capacity": null
+      }
+    },
+    {
+      "entityType": "weather",
+      "entityId": "west-metro",
+      "state": {
+        "cellId": "west-metro",
+        "summary": "Active storm cell WSW of city; heavy rain band approaching; gusts to 65 km/h",
+        "precipNowMmHr": 2,
+        "windGustKmh": 65,
+        "rainArrivalTick": 22,
+        "peakMmHr": 30,
+        "intensityFactor": 1,
+        "perZoneRisk": [
+          {
+            "zone": "Z-05",
+            "floodRelevance": "high"
+          },
+          {
+            "zone": "Z-09",
+            "floodRelevance": "high"
+          },
+          {
+            "zone": "Z-01",
+            "floodRelevance": "medium"
+          },
+          {
+            "zone": "Z-13",
+            "floodRelevance": "medium"
+          }
+        ]
+      }
+    }
+  ]
+}

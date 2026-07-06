@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+.pnpm-store/
+.venv/
+__pycache__/
+*.egg-info/
+
+# accidental nested empty repos (GitHub Desktop "create repo" mistakes)
+CrisisGrid/
+
+# build output
+dist/
+*.tsbuildinfo
+
+# runtime data
+data/
+*.sqlite
+*.sqlite-journal
+
+# environment — .env.example is the only committed env file
+.env
+.env.*
+!.env.example
+
+# misc
+.DS_Store
+evals/out/

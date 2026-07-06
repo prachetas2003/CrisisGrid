@@ -1,0 +1,161 @@
+{
+  "$ref": "#/definitions/finding",
+  "definitions": {
+    "finding": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "agentId": {
+          "type": "string",
+          "enum": [
+            "intake",
+            "weather",
+            "power",
+            "traffic",
+            "shelter",
+            "comms",
+            "safety",
+            "commander",
+            "briefing"
+          ]
+        },
+        "finding": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "info",
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "tool_call",
+                  "dataset",
+                  "assumption",
+                  "agent_finding"
+                ]
+              },
+              "ref": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "ref",
+              "summary"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "recommendedAction": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "tier": {
+                  "type": "string",
+                  "enum": [
+                    "safe",
+                    "needs_approval",
+                    "blocked"
+                  ]
+                },
+                "timeWindow": {
+                  "type": "string",
+                  "enum": [
+                    "immediate",
+                    "short_term",
+                    "next_period"
+                  ]
+                },
+                "targetTeam": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "title",
+                "description",
+                "tier",
+                "timeWindow",
+                "targetTeam"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "affectedZones": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^Z-\\d{2}$"
+          }
+        },
+        "expiresAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "carriedForward": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "id",
+        "agentId",
+        "finding",
+        "detail",
+        "severity",
+        "confidence",
+        "evidence",
+        "recommendedAction",
+        "assumptions",
+        "affectedZones",
+        "expiresAt"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

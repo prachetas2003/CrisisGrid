@@ -1,0 +1,26 @@
+{
+  "name": "crisisgrid",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm -r --filter \"./packages/**\" --filter \"./apps/**\" build",
+    "typecheck": "pnpm -r typecheck",
+    "build:city": "tsx scripts/build-city.ts",
+    "gen:schemas": "tsx packages/shared/scripts/gen-json-schema.ts",
+    "dev": "node scripts/dev-all.mjs",
+    "dev:server": "pnpm --filter @crisisgrid/server dev",
+    "dev:web": "pnpm --filter @crisisgrid/web dev",
+    "agents": "node scripts/run-agents.mjs",
+    "evals": "vitest run --dir evals/ts",
+    "cli": "tsx packages/cli/src/index.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
+  }
+}

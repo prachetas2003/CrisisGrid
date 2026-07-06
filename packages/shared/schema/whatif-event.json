@@ -1,0 +1,84 @@
+{
+  "$ref": "#/definitions/whatif-event",
+  "definitions": {
+    "whatif-event": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^WHATIF-[A-Z-]+$"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "patches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "op": {
+                "type": "string",
+                "enum": [
+                  "set",
+                  "merge",
+                  "delete"
+                ]
+              },
+              "entityType": {
+                "type": "string",
+                "enum": [
+                  "outage",
+                  "corridor",
+                  "shelter",
+                  "facilityPower",
+                  "resourceUnit",
+                  "closure",
+                  "weather",
+                  "report311",
+                  "riskOverlay"
+                ]
+              },
+              "entityId": {
+                "type": "string"
+              },
+              "data": {
+                "type": "object",
+                "additionalProperties": {}
+              }
+            },
+            "required": [
+              "op",
+              "entityType",
+              "entityId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "affectedAgents": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "weather",
+              "power",
+              "traffic",
+              "shelter"
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "patches",
+        "affectedAgents"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

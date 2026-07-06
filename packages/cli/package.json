@@ -1,0 +1,24 @@
+{
+  "name": "@crisisgrid/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "crisisgrid": "./bin/crisisgrid.mjs"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@crisisgrid/engine": "workspace:*",
+    "@crisisgrid/mcp-server": "workspace:*",
+    "@crisisgrid/shared": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.11.0",
+    "commander": "^13.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

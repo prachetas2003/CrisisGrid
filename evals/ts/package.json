@@ -1,0 +1,19 @@
+{
+  "name": "@crisisgrid/evals",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@crisisgrid/engine": "workspace:*",
+    "@crisisgrid/mcp-server": "workspace:*",
+    "@crisisgrid/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
+  }
+}

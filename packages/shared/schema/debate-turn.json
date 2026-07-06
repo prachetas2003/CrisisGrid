@@ -1,0 +1,214 @@
+{
+  "$ref": "#/definitions/debate-turn",
+  "definitions": {
+    "debate-turn": {
+      "type": "object",
+      "properties": {
+        "conflictId": {
+          "type": "string"
+        },
+        "round": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fromAgent": {
+          "type": "string",
+          "enum": [
+            "intake",
+            "weather",
+            "power",
+            "traffic",
+            "shelter",
+            "comms",
+            "safety",
+            "commander",
+            "briefing"
+          ]
+        },
+        "toAgent": {
+          "$ref": "#/definitions/debate-turn/properties/fromAgent"
+        },
+        "stance": {
+          "type": "string",
+          "enum": [
+            "confirm",
+            "contest",
+            "amend"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "amendedFinding": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "agentId": {
+                  "$ref": "#/definitions/debate-turn/properties/fromAgent"
+                },
+                "finding": {
+                  "type": "string"
+                },
+                "detail": {
+                  "type": "string"
+                },
+                "severity": {
+                  "type": "string",
+                  "enum": [
+                    "info",
+                    "low",
+                    "medium",
+                    "high",
+                    "critical"
+                  ]
+                },
+                "confidence": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "tool_call",
+                          "dataset",
+                          "assumption",
+                          "agent_finding"
+                        ]
+                      },
+                      "ref": {
+                        "type": "string"
+                      },
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "ref",
+                      "summary"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                },
+                "recommendedAction": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "tier": {
+                          "type": "string",
+                          "enum": [
+                            "safe",
+                            "needs_approval",
+                            "blocked"
+                          ]
+                        },
+                        "timeWindow": {
+                          "type": "string",
+                          "enum": [
+                            "immediate",
+                            "short_term",
+                            "next_period"
+                          ]
+                        },
+                        "targetTeam": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "title",
+                        "description",
+                        "tier",
+                        "timeWindow",
+                        "targetTeam"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "assumptions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "affectedZones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^Z-\\d{2}$"
+                  }
+                },
+                "expiresAt": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "carriedForward": {
+                  "type": "boolean",
+                  "default": false
+                }
+              },
+              "required": [
+                "id",
+                "agentId",
+                "finding",
+                "detail",
+                "severity",
+                "confidence",
+                "evidence",
+                "recommendedAction",
+                "assumptions",
+                "affectedZones",
+                "expiresAt"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "conflictId",
+        "round",
+        "fromAgent",
+        "toAgent",
+        "stance",
+        "text",
+        "evidenceRefs",
+        "amendedFinding"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

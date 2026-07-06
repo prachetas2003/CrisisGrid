@@ -1,0 +1,116 @@
+{
+  "whatifs": [
+    {
+      "id": "WHATIF-BRIDGE",
+      "title": "Main St Bridge closed",
+      "description": "Bridge closed for emergency inspection after debris strike. RT-08 unavailable.",
+      "patches": [
+        {
+          "op": "set",
+          "entityType": "closure",
+          "entityId": "CLS-MAIN",
+          "data": {
+            "closureId": "CLS-MAIN",
+            "name": "Main St Bridge",
+            "kind": "bridge",
+            "reason": "Emergency inspection after debris strike",
+            "sinceTick": 0,
+            "bridgeId": "BR-MAIN",
+            "corridorId": "COR-MAIN-BRIDGE"
+          }
+        },
+        {
+          "op": "merge",
+          "entityType": "corridor",
+          "entityId": "COR-MAIN-BRIDGE",
+          "data": {
+            "level": 1,
+            "trend": "steady"
+          }
+        }
+      ],
+      "affectedAgents": [
+        "traffic",
+        "shelter"
+      ]
+    },
+    {
+      "id": "WHATIF-RAIN",
+      "title": "Rainfall intensity +50%",
+      "description": "Storm cell intensifies; floodplain activation probability high on west bank.",
+      "patches": [
+        {
+          "op": "merge",
+          "entityType": "weather",
+          "entityId": "west-metro",
+          "data": {
+            "intensityFactor": 1.5,
+            "summary": "Intensified storm cell: +50% rainfall; floodplain activation likely"
+          }
+        }
+      ],
+      "affectedAgents": [
+        "weather",
+        "traffic",
+        "shelter"
+      ]
+    },
+    {
+      "id": "WHATIF-OUTAGE-EAST",
+      "title": "Outage expands east to Z-06",
+      "description": "Cascading fault trips SUB-C1 circuit; Midtown (Z-06) loses power.",
+      "patches": [
+        {
+          "op": "set",
+          "entityType": "outage",
+          "entityId": "OUT-3",
+          "data": {
+            "id": "OUT-3",
+            "substation": "SUB-C1",
+            "zones": [
+              {
+                "zone": "Z-06",
+                "level": "out"
+              }
+            ],
+            "customersOut": 8300,
+            "cause": "Cascading breaker trip on SUB-C1 east circuit",
+            "startedAtTick": 0,
+            "status": "active"
+          }
+        },
+        {
+          "op": "merge",
+          "entityType": "shelter",
+          "entityId": "SHL-LHS",
+          "data": {
+            "powerStatus": "backup"
+          }
+        }
+      ],
+      "affectedAgents": [
+        "power",
+        "shelter"
+      ]
+    },
+    {
+      "id": "WHATIF-SHELTER-FULL",
+      "title": "Lincoln HS shelter full",
+      "description": "Lincoln High School reaches 100% capacity and stops accepting arrivals.",
+      "patches": [
+        {
+          "op": "merge",
+          "entityType": "shelter",
+          "entityId": "SHL-LHS",
+          "data": {
+            "occupied": 450,
+            "acceptingNew": false
+          }
+        }
+      ],
+      "affectedAgents": [
+        "shelter"
+      ]
+    }
+  ]
+}

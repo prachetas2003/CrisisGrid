@@ -1,0 +1,320 @@
+{
+  "corridors": [
+    {
+      "id": "COR-RIVER-W",
+      "name": "River Road (west bank)",
+      "zones": [
+        "Z-01",
+        "Z-05",
+        "Z-09",
+        "Z-13"
+      ],
+      "geo": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.7,
+            45.5475
+          ],
+          [
+            -122.7,
+            45.5225
+          ],
+          [
+            -122.7,
+            45.4975
+          ],
+          [
+            -122.7,
+            45.4725
+          ]
+        ]
+      },
+      "baseCapacityVph": 1200
+    },
+    {
+      "id": "COR-MAIN-W",
+      "name": "Main St West Approach",
+      "zones": [
+        "Z-05"
+      ],
+      "geo": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.7,
+            45.5225
+          ],
+          [
+            -122.68,
+            45.5225
+          ]
+        ]
+      },
+      "baseCapacityVph": 1600
+    },
+    {
+      "id": "COR-MAIN-BRIDGE",
+      "name": "Main St Bridge Crossing",
+      "zones": [
+        "Z-05",
+        "Z-06"
+      ],
+      "geo": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.684,
+            45.5225
+          ],
+          [
+            -122.676,
+            45.5225
+          ]
+        ]
+      },
+      "baseCapacityVph": 1800
+    },
+    {
+      "id": "COR-MAIN-E",
+      "name": "Main St East",
+      "zones": [
+        "Z-06",
+        "Z-07"
+      ],
+      "geo": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.66,
+            45.5225
+          ],
+          [
+            -122.62,
+            45.5225
+          ]
+        ]
+      },
+      "baseCapacityVph": 1800
+    },
+    {
+      "id": "COR-CEDAR",
+      "name": "Cedar Ave & Bridge",
+      "zones": [
+        "Z-01",
+        "Z-02"
+      ],
+      "geo": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.7,
+            45.5475
+          ],
+          [
+            -122.66,
+            45.5475
+          ]
+        ]
+      },
+      "baseCapacityVph": 1400
+    },
+    {
+      "id": "COR-SOUTH-W",
+      "name": "Southwest Connector",
+      "zones": [
+        "Z-09",
+        "Z-13"
+      ],
+      "geo": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.7,
+            45.4975
+          ],
+          [
+            -122.7,
+            45.4725
+          ]
+        ]
+      },
+      "baseCapacityVph": 1100
+    },
+    {
+      "id": "COR-DELTA",
+      "name": "Delta Bridge Crossing",
+      "zones": [
+        "Z-13",
+        "Z-14"
+      ],
+      "geo": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.7,
+            45.4725
+          ],
+          [
+            -122.66,
+            45.4725
+          ]
+        ]
+      },
+      "baseCapacityVph": 1000
+    },
+    {
+      "id": "COR-EAST-N",
+      "name": "Northeast Arterial",
+      "zones": [
+        "Z-02",
+        "Z-03",
+        "Z-07"
+      ],
+      "geo": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.66,
+            45.5475
+          ],
+          [
+            -122.62,
+            45.5475
+          ],
+          [
+            -122.62,
+            45.5225
+          ]
+        ]
+      },
+      "baseCapacityVph": 1500
+    },
+    {
+      "id": "COR-EAST-S",
+      "name": "Southeast Arterial",
+      "zones": [
+        "Z-14",
+        "Z-15",
+        "Z-11"
+      ],
+      "geo": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.66,
+            45.4725
+          ],
+          [
+            -122.62,
+            45.4725
+          ],
+          [
+            -122.62,
+            45.4975
+          ]
+        ]
+      },
+      "baseCapacityVph": 1300
+    },
+    {
+      "id": "COR-CENTRAL",
+      "name": "Civic Center Loop",
+      "zones": [
+        "Z-06",
+        "Z-10"
+      ],
+      "geo": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.66,
+            45.5225
+          ],
+          [
+            -122.66,
+            45.4975
+          ]
+        ]
+      },
+      "baseCapacityVph": 1400
+    }
+  ],
+  "routes": [
+    {
+      "id": "RT-12",
+      "name": "Route 12 — River Road via Cedar Bridge",
+      "fromZone": "Z-05",
+      "toZone": "Z-07",
+      "corridorIds": [
+        "COR-RIVER-W",
+        "COR-CEDAR",
+        "COR-EAST-N"
+      ],
+      "bridgeIds": [
+        "BR-CEDAR"
+      ],
+      "floodplainIds": [
+        "FP-WEST-N"
+      ],
+      "baseEtaMin": 18,
+      "distanceKm": 9.4
+    },
+    {
+      "id": "RT-08",
+      "name": "Route 8 — Main St Bridge",
+      "fromZone": "Z-05",
+      "toZone": "Z-07",
+      "corridorIds": [
+        "COR-MAIN-W",
+        "COR-MAIN-BRIDGE",
+        "COR-MAIN-E"
+      ],
+      "bridgeIds": [
+        "BR-MAIN"
+      ],
+      "floodplainIds": [],
+      "baseEtaMin": 24,
+      "distanceKm": 10.2
+    },
+    {
+      "id": "RT-DELTA",
+      "name": "Delta Bridge Route",
+      "fromZone": "Z-05",
+      "toZone": "Z-07",
+      "corridorIds": [
+        "COR-RIVER-W",
+        "COR-SOUTH-W",
+        "COR-DELTA",
+        "COR-EAST-S"
+      ],
+      "bridgeIds": [
+        "BR-DELTA"
+      ],
+      "floodplainIds": [
+        "FP-WEST-S"
+      ],
+      "baseEtaMin": 38,
+      "distanceKm": 16.1
+    },
+    {
+      "id": "RT-09S",
+      "name": "Old Mill to Delta Rec via Delta Bridge",
+      "fromZone": "Z-09",
+      "toZone": "Z-15",
+      "corridorIds": [
+        "COR-SOUTH-W",
+        "COR-DELTA",
+        "COR-EAST-S"
+      ],
+      "bridgeIds": [
+        "BR-DELTA"
+      ],
+      "floodplainIds": [
+        "FP-WEST-S"
+      ],
+      "baseEtaMin": 22,
+      "distanceKm": 11.3
+    }
+  ]
+}

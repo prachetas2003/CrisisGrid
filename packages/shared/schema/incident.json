@@ -1,0 +1,96 @@
+{
+  "$ref": "#/definitions/incident",
+  "definitions": {
+    "incident": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "scenarioId": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "operatorText": {
+          "type": "string"
+        },
+        "types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "power_outage",
+              "storm",
+              "flood",
+              "wildfire",
+              "heatwave",
+              "traffic_failure",
+              "infrastructure",
+              "other"
+            ]
+          }
+        },
+        "zones": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^Z-\\d{2}$"
+          }
+        },
+        "simTime": {
+          "type": "string"
+        },
+        "severityHint": {
+          "type": "string",
+          "enum": [
+            "info",
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ]
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "operatorIntent": {
+          "type": "string"
+        },
+        "clarificationNeeded": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "scenarioId",
+        "revision",
+        "operatorText",
+        "types",
+        "zones",
+        "simTime",
+        "severityHint",
+        "constraints",
+        "operatorIntent",
+        "clarificationNeeded",
+        "assumptions"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,248 @@
+{
+  "$ref": "#/definitions/plan-diff",
+  "definitions": {
+    "plan-diff": {
+      "type": "object",
+      "properties": {
+        "planA": {
+          "type": "string"
+        },
+        "planB": {
+          "type": "string"
+        },
+        "riskDelta": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "number"
+            },
+            "to": {
+              "type": "number"
+            },
+            "perZone": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "zone": {
+                    "type": "string",
+                    "pattern": "^Z-\\d{2}$"
+                  },
+                  "from": {
+                    "type": "number"
+                  },
+                  "to": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "zone",
+                  "from",
+                  "to"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "from",
+            "to",
+            "perZone"
+          ],
+          "additionalProperties": false
+        },
+        "routeChanges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "purpose": {
+                "type": "string"
+              },
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "purpose",
+              "from",
+              "to",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "shelterChanges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "zone": {
+                "$ref": "#/definitions/plan-diff/properties/riskDelta/properties/perZone/items/properties/zone"
+              },
+              "fromShelter": {
+                "type": "string"
+              },
+              "toShelter": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "zone",
+              "fromShelter",
+              "toShelter",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "addedActions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "tier": {
+                "type": "string",
+                "enum": [
+                  "safe",
+                  "needs_approval",
+                  "blocked"
+                ]
+              },
+              "timeWindow": {
+                "type": "string",
+                "enum": [
+                  "immediate",
+                  "short_term",
+                  "next_period"
+                ]
+              },
+              "targetTeam": {
+                "type": "string"
+              },
+              "dependsOn": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "sourceFindings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "simulated": {
+                "type": "boolean",
+                "default": true
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "description",
+              "tier",
+              "timeWindow",
+              "targetTeam",
+              "dependsOn",
+              "sourceFindings"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "removedActions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "$ref": "#/definitions/plan-diff/properties/addedActions/items"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "modifiedActions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "$ref": "#/definitions/plan-diff/properties/addedActions/items"
+              },
+              "after": {
+                "$ref": "#/definitions/plan-diff/properties/addedActions/items"
+              }
+            },
+            "required": [
+              "before",
+              "after"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "changeExplanations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "change": {
+                "type": "string"
+              },
+              "causedBy": {
+                "type": "string"
+              },
+              "agentFinding": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "change",
+              "causedBy",
+              "agentFinding"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "planA",
+        "planB",
+        "riskDelta",
+        "routeChanges",
+        "shelterChanges",
+        "addedActions",
+        "removedActions",
+        "modifiedActions",
+        "changeExplanations"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

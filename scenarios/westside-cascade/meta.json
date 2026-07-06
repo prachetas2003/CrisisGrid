@@ -1,0 +1,7 @@
+{
+  "id": "westside-cascade",
+  "name": "Westside Cascade",
+  "description": "Storm-driven power outage during rush hour with incoming heavy rain, dark signals, a hospital on backup power, and a flood-exposed evacuation route.",
+  "city": "Riverbend (simulated city on Portland, OR geography, pop. ~464,000)",
+  "dataHonesty": "Geography uses real coordinates for realism. All grid, traffic, shelter, population, and facility-status data is simulated scenario data for a deterministic exercise. No real emergency systems are connected."
+}

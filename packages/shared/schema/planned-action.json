@@ -1,0 +1,66 @@
+{
+  "$ref": "#/definitions/planned-action",
+  "definitions": {
+    "planned-action": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "safe",
+            "needs_approval",
+            "blocked"
+          ]
+        },
+        "timeWindow": {
+          "type": "string",
+          "enum": [
+            "immediate",
+            "short_term",
+            "next_period"
+          ]
+        },
+        "targetTeam": {
+          "type": "string"
+        },
+        "dependsOn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourceFindings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "simulated": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "tier",
+        "timeWindow",
+        "targetTeam",
+        "dependsOn",
+        "sourceFindings"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

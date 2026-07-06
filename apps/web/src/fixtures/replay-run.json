@@ -1,0 +1,2482 @@
+[
+ {
+  "t": 1,
+  "event": {
+   "type": "run.start",
+   "incidentId": "inc-21ae149b",
+   "scenarioId": "westside-cascade"
+  }
+ },
+ {
+  "t": 2,
+  "event": {
+   "type": "phase",
+   "phase": "intake"
+  }
+ },
+ {
+  "t": 3347,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "intake",
+   "tool": "geo_geocode",
+   "args": {
+    "query": "Cedar Heights",
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 3348,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "intake",
+   "tool": "geo_geocode",
+   "args": {
+    "query": "Westbank",
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 3349,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "intake",
+   "tool": "geo_geocode",
+   "args": {
+    "query": "Riverbend General Hospital",
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 3435,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "intake",
+   "tool": "geo_geocode",
+   "toolCallId": "tc-4436675f-13fa-46de-b803-5be1d9ef6bd4"
+  }
+ },
+ {
+  "t": 3441,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "intake",
+   "tool": "geo_geocode",
+   "toolCallId": "tc-ac0d7425-62dd-4bcc-97ec-0a9386aa4d01"
+  }
+ },
+ {
+  "t": 3441,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "intake",
+   "tool": "geo_geocode",
+   "toolCallId": "tc-b2326ada-03af-4fa2-9748-d33c0403300f"
+  }
+ },
+ {
+  "t": 5174,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "intake",
+   "tool": "grid_get_outages",
+   "args": {
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 5223,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "intake",
+   "tool": "grid_get_outages",
+   "toolCallId": "tc-635a8879-8f92-40ea-83a0-b228192ca47d"
+  }
+ },
+ {
+  "t": 10664,
+  "event": {
+   "type": "incident.parsed",
+   "incident": {
+    "id": "inc-21ae149b",
+    "scenarioId": "westside-cascade",
+    "revision": 1,
+    "operatorText": "Storm knocked out power in Cedar Heights and Westbank, heavy rain is coming, and Riverbend General Hospital is on backup generators. What should we do?",
+    "types": [
+     "other"
+    ],
+    "zones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "simTime": "2026-07-02T17:20:00",
+    "severityHint": "high",
+    "constraints": [
+     "Riverbend General Hospital operating on backup generators."
+    ],
+    "operatorIntent": "request for action",
+    "clarificationNeeded": null,
+    "assumptions": []
+   }
+  }
+ },
+ {
+  "t": 10665,
+  "event": {
+   "type": "phase",
+   "phase": "assessment"
+  }
+ },
+ {
+  "t": 10665,
+  "event": {
+   "type": "agent.status",
+   "agentId": "weather",
+   "state": "working"
+  }
+ },
+ {
+  "t": 10665,
+  "event": {
+   "type": "agent.status",
+   "agentId": "power",
+   "state": "working"
+  }
+ },
+ {
+  "t": 10665,
+  "event": {
+   "type": "agent.status",
+   "agentId": "traffic",
+   "state": "working"
+  }
+ },
+ {
+  "t": 10665,
+  "event": {
+   "type": "agent.status",
+   "agentId": "shelter",
+   "state": "working"
+  }
+ },
+ {
+  "t": 13888,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "power",
+   "tool": "grid_get_outages",
+   "args": {
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 13952,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "power",
+   "tool": "grid_get_outages",
+   "toolCallId": "tc-f34beb0a-3335-43ac-9e36-e4b7e3a0a081"
+  }
+ },
+ {
+  "t": 14914,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "shelter",
+   "tool": "geo_get_zone_boundaries",
+   "args": {
+    "scenarioId": "westside-cascade",
+    "zones": [
+     "Z-01",
+     "Z-05"
+    ]
+   }
+  }
+ },
+ {
+  "t": 14914,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "shelter",
+   "tool": "shelters_list",
+   "args": {
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 14914,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "shelter",
+   "tool": "resources_get_available_units",
+   "args": {
+    "kinds": [
+     "bus_group"
+    ],
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 14996,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "shelter",
+   "tool": "geo_get_zone_boundaries",
+   "toolCallId": "tc-fb3e394c-24c6-4645-8c50-2f3320b53bcb"
+  }
+ },
+ {
+  "t": 15000,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "shelter",
+   "tool": "shelters_list",
+   "toolCallId": "tc-bab8265c-b8ed-422d-b135-ab6b795530a7"
+  }
+ },
+ {
+  "t": 15001,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "shelter",
+   "tool": "resources_get_available_units",
+   "toolCallId": "tc-1de49c9d-f6bd-4651-b47a-b5755e036ff5"
+  }
+ },
+ {
+  "t": 15832,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "power",
+   "tool": "grid_get_affected_zones",
+   "args": {
+    "outageId": "OUT-1",
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 15833,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "power",
+   "tool": "grid_get_critical_facilities",
+   "args": {
+    "scenarioId": "westside-cascade",
+    "zones": [
+     "Z-01",
+     "Z-05"
+    ]
+   }
+  }
+ },
+ {
+  "t": 15833,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "power",
+   "tool": "grid_estimate_restoration_priority",
+   "args": {
+    "scenarioId": "westside-cascade",
+    "outageId": "OUT-1"
+   }
+  }
+ },
+ {
+  "t": 15908,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "power",
+   "tool": "grid_get_affected_zones",
+   "toolCallId": "tc-6c16c51a-a9d3-4866-a1fb-9943560a65f9"
+  }
+ },
+ {
+  "t": 15914,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "power",
+   "tool": "grid_get_critical_facilities",
+   "toolCallId": "tc-3f1d1a95-5d11-4bcb-9f10-5dcd02633ae1"
+  }
+ },
+ {
+  "t": 15914,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "power",
+   "tool": "grid_estimate_restoration_priority",
+   "toolCallId": "tc-e50c42d6-3d0f-4880-8612-14856aef2747"
+  }
+ },
+ {
+  "t": 17865,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "weather",
+   "tool": "weather_get_forecast",
+   "args": {
+    "zone": "Z-01",
+    "hours": 12,
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 17866,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "weather",
+   "tool": "weather_get_forecast",
+   "args": {
+    "zone": "Z-05",
+    "hours": 12,
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 17866,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "weather",
+   "tool": "weather_get_rainfall_risk",
+   "args": {
+    "zones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 17866,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "weather",
+   "tool": "weather_get_wind_risk",
+   "args": {
+    "zones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 17866,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "weather",
+   "tool": "weather_get_alerts",
+   "args": {
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 17866,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "weather",
+   "tool": "traffic_find_routes",
+   "args": {
+    "scenarioId": "westside-cascade",
+    "toZone": "Z-05",
+    "fromZone": "Z-01"
+   }
+  }
+ },
+ {
+  "t": 17866,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "weather",
+   "tool": "traffic_find_routes",
+   "args": {
+    "fromZone": "Z-05",
+    "scenarioId": "westside-cascade",
+    "toZone": "Z-01"
+   }
+  }
+ },
+ {
+  "t": 17982,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "weather",
+   "tool": "weather_get_forecast",
+   "toolCallId": "tc-b39086e3-0422-4c51-aa87-3ff8cba9e35b"
+  }
+ },
+ {
+  "t": 17986,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "weather",
+   "tool": "weather_get_forecast",
+   "toolCallId": "tc-531ec3a6-f595-4a7d-994d-67692823ee31"
+  }
+ },
+ {
+  "t": 17986,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "weather",
+   "tool": "weather_get_rainfall_risk",
+   "toolCallId": "tc-1a986c3e-e4f6-4d38-be81-6aa8d74090d2"
+  }
+ },
+ {
+  "t": 17986,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "weather",
+   "tool": "weather_get_wind_risk",
+   "toolCallId": "tc-197a846d-903f-4ac2-a449-0902c873ca64"
+  }
+ },
+ {
+  "t": 17986,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "weather",
+   "tool": "weather_get_alerts",
+   "toolCallId": "tc-7fb05b19-0416-4ce0-826e-cfeb7a984ba0"
+  }
+ },
+ {
+  "t": 17986,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "weather",
+   "tool": "traffic_find_routes",
+   "toolCallId": "tc-17fceecb-62b2-4118-9819-175398650a75"
+  }
+ },
+ {
+  "t": 17986,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "weather",
+   "tool": "traffic_find_routes",
+   "toolCallId": "tc-2a5a17ad-3072-4456-a436-802768ae1456"
+  }
+ },
+ {
+  "t": 19415,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "traffic",
+   "tool": "traffic_get_congestion",
+   "args": {
+    "zones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 19416,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "traffic",
+   "tool": "traffic_get_road_closures",
+   "args": {
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 19416,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "traffic",
+   "tool": "geo_get_zone_boundaries",
+   "args": {
+    "scenarioId": "westside-cascade",
+    "zones": [
+     "Z-01",
+     "Z-05"
+    ]
+   }
+  }
+ },
+ {
+  "t": 19504,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "traffic",
+   "tool": "traffic_get_congestion",
+   "toolCallId": "tc-b23ad966-764a-48dd-81f4-86c0195df011"
+  }
+ },
+ {
+  "t": 19509,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "traffic",
+   "tool": "traffic_get_road_closures",
+   "toolCallId": "tc-07763aa5-facc-4f71-a143-081d864ad9a9"
+  }
+ },
+ {
+  "t": 19509,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "traffic",
+   "tool": "geo_get_zone_boundaries",
+   "toolCallId": "tc-fbdf324d-ac95-40f3-ad2c-1e983d2c52e1"
+  }
+ },
+ {
+  "t": 23790,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "args": {
+    "scenarioId": "westside-cascade",
+    "fromZone": "Z-01",
+    "toZone": "Z-03",
+    "count": 3
+   }
+  }
+ },
+ {
+  "t": 23790,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "args": {
+    "scenarioId": "westside-cascade",
+    "count": 3,
+    "toZone": "Z-06",
+    "fromZone": "Z-01"
+   }
+  }
+ },
+ {
+  "t": 23790,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "args": {
+    "toZone": "Z-03",
+    "count": 3,
+    "fromZone": "Z-05",
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 23790,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "args": {
+    "scenarioId": "westside-cascade",
+    "fromZone": "Z-05",
+    "toZone": "Z-06",
+    "count": 3
+   }
+  }
+ },
+ {
+  "t": 23869,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "toolCallId": "tc-c8b1ad4c-6bc7-49e2-96aa-0417cc87d28f"
+  }
+ },
+ {
+  "t": 23874,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "toolCallId": "tc-6c8cbca7-227e-4fb0-895e-ba34d192c1eb"
+  }
+ },
+ {
+  "t": 23874,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "toolCallId": "tc-3df0f33c-8883-4a16-834c-323413340380"
+  }
+ },
+ {
+  "t": 23874,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "toolCallId": "tc-3a7d1aca-a7f4-41b4-9327-f07d05954b43"
+  }
+ },
+ {
+  "t": 29553,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "args": {
+    "toZone": "Z-02",
+    "fromZone": "Z-01",
+    "scenarioId": "westside-cascade",
+    "count": 3
+   }
+  }
+ },
+ {
+  "t": 29554,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "args": {
+    "fromZone": "Z-05",
+    "toZone": "Z-06",
+    "count": 3,
+    "scenarioId": "westside-cascade"
+   }
+  }
+ },
+ {
+  "t": 29616,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "toolCallId": "tc-7756dc16-9489-4061-b89f-efeb0542a29f"
+  }
+ },
+ {
+  "t": 29620,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "traffic",
+   "tool": "traffic_find_routes",
+   "toolCallId": "tc-b06b0a23-49ee-427b-966c-57a37c255da0"
+  }
+ },
+ {
+  "t": 30289,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "SHL-001",
+    "agentId": "shelter",
+    "finding": "An estimated 5280-6600 people in Cedar Heights (Z-01) and Westbank (Z-05) require shelter due to power outages and anticipated heavy rain, significantly exceeding available capacity.",
+    "detail": "The combined population of Cedar Heights (Z-01) is 34200 and Westbank (Z-05) is 31800, totaling 66000 people. Assuming 8-10% require shelter, the demand ranges from 5280 to 6600. Current available beds across all active shelters total 2020.",
+    "severity": "critical",
+    "confidence": 0.9,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-fb3e394c-24c6-4645-8c50-2f3320b53bcb",
+      "summary": "Population data for Z-01 and Z-05."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-bab8265c-b8ed-422d-b135-ab6b795530a7",
+      "summary": "Available beds in all shelters."
+     }
+    ],
+    "recommendedAction": null,
+    "assumptions": [
+     "Approximately 8-10% of the affected population will require shelter."
+    ],
+    "affectedZones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 30296,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "SHL-002",
+    "agentId": "shelter",
+    "finding": "Shelter allocation is proposed for 1840 individuals across five accessible, grid-powered shelters, prioritizing Westbank (Z-05) due to higher medical device dependency.",
+    "detail": "Westbank (Z-05) has a 4.1% medical device dependency (medDevicePct) and Cedar Heights (Z-01) has 2.1%. To prioritize vulnerable populations, an estimated 1005 beds are allocated to Z-05 across SHL-FGP (745 beds) and SHL-WCC (260 beds). The remaining 835 beds are allocated to Z-01 across SHL-LHS (390 beds), SHL-DRC (320 beds), and SHL-CLB (125 beds). All proposed shelters are grid-powered and accepting new arrivals.",
+    "severity": "high",
+    "confidence": 0.9,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-fb3e394c-24c6-4645-8c50-2f3320b53bcb",
+      "summary": "Vulnerability data for Z-01 and Z-05."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-bab8265c-b8ed-422d-b135-ab6b795530a7",
+      "summary": "Capacity, power status, and accessibility of shelters."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Approve Shelter Allocation Plan",
+     "description": "Approve the proposed shelter allocation for populations from Z-01 and Z-05 to SHL-FGP, SHL-WCC, SHL-LHS, SHL-DRC, and SHL-CLB.",
+     "tier": "needs_approval",
+     "timeWindow": "immediate",
+     "targetTeam": "Logistics"
+    },
+    "assumptions": [],
+    "affectedZones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 30296,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "SHL-003",
+    "agentId": "shelter",
+    "finding": "Three available bus groups (BUS-1, BUS-2, BUS-3) can be staged immediately at Westbank (Z-05) to begin evacuating vulnerable populations.",
+    "detail": "Westbank (Z-05) has the highest medical device dependency (4.1%) among the affected zones, making its population highly vulnerable to the ongoing power outage and impending heavy rain. Staging three bus groups, each with a capacity of 40 passengers, will allow for immediate transport of 120 individuals to designated shelters.",
+    "severity": "medium",
+    "confidence": 0.9,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-fb3e394c-24c6-4645-8c50-f23320b53bcb",
+      "summary": "Vulnerability data for Z-05."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-1de49c9d-f6bd-4651-b47a-b5755e036ff5",
+      "summary": "Availability and capacity of bus groups."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Recommend Bus Staging for Evacuation",
+     "description": "Stage BUS-1, BUS-2, and BUS-3 at Z-05 for immediate evacuation of residents to shelters. This should be completed before '2026-07-02T17:20:00'.",
+     "tier": "safe",
+     "timeWindow": "immediate",
+     "targetTeam": "Logistics"
+    },
+    "assumptions": [
+     "Bus groups are to be used for evacuating residents to shelters."
+    ],
+    "affectedZones": [
+     "Z-05"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 30296,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "SHL-004",
+    "agentId": "shelter",
+    "finding": "SHL-NGC (Northgate Church) with 180 available beds is not accessible and thus not included in the general allocation plan for the affected zones.",
+    "detail": "The Northgate Church shelter (SHL-NGC) has 180 available beds and grid power. However, its 'accessible' status is false, making it unsuitable for general allocation, especially given the high medical device dependency in Westbank (Z-05). It remains available for specific, non-mobility impaired cases or as a last resort.",
+    "severity": "info",
+    "confidence": 0.9,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-bab8265c-b8ed-422d-b135-ab6b795530a7",
+      "summary": "Accessibility status of SHL-NGC."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-fb3e394c-24c6-4645-8c50-f23320b53bcb",
+      "summary": "Vulnerability data, including medDevicePct, for affected zones."
+     }
+    ],
+    "recommendedAction": null,
+    "assumptions": [],
+    "affectedZones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 30296,
+  "event": {
+   "type": "agent.status",
+   "agentId": "shelter",
+   "state": "done"
+  }
+ },
+ {
+  "t": 30623,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "PW-001",
+    "agentId": "power",
+    "finding": "Riverbend General Hospital is operating on backup power.",
+    "detail": "Riverbend General Hospital (HOSP-RG) in zone Z-05 has 8 hours of generator backup remaining as of 2026-07-02T17:20:00, with an estimated depletion time of 2026-07-03T01:20:00. This is a critical life-safety concern.",
+    "severity": "critical",
+    "confidence": 1,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-3f1d1a95-5d11-4bcb-9f10-5dcd02634ae1",
+      "summary": "Identified Riverbend General Hospital (HOSP-RG) on backup power with 8 hours remaining."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Prioritize power restoration to Riverbend General Hospital",
+     "description": "Expedite power restoration efforts for CIRCUIT-Z-05 to ensure continuous power supply to Riverbend General Hospital (HOSP-RG) before its backup generators deplete at 2026-07-03T01:20:00.",
+     "tier": "needs_approval",
+     "timeWindow": "immediate",
+     "targetTeam": "Power Restoration Team"
+    },
+    "assumptions": [],
+    "affectedZones": [
+     "Z-05"
+    ],
+    "expiresAt": "2026-07-03T01:20:00",
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 30631,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "PW-002",
+    "agentId": "power",
+    "finding": "Power restoration priority for outage OUT-1 is established.",
+    "detail": "The highest priority for restoration for outage OUT-1 is CIRCUIT-Z-05 due to Riverbend General Hospital (HOSP-RG) and three dark signalized intersections (SIG-04, SIG-05, SIG-06), requiring an estimated 3.75 crew hours. The next priority is CIRCUIT-Z-01, impacting three dark signalized intersections (SIG-01, SIG-02, SIG-03), requiring an estimated 2.75 crew hours.",
+    "severity": "high",
+    "confidence": 1,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-e50c42d6-3d0f-4880-8612-14856aef2747",
+      "summary": "Restoration priority for outage OUT-1 with ranked circuits and crew hour estimates."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Initiate power restoration for OUT-1 according to priority",
+     "description": "Dispatch power restoration crews to address CIRCUIT-Z-05 (estimated 3.75 crew hours) first, followed by CIRCUIT-Z-01 (estimated 2.75 crew hours), to prioritize life-safety facilities and critical infrastructure impacted by outage OUT-1.",
+     "tier": "needs_approval",
+     "timeWindow": "immediate",
+     "targetTeam": "Power Restoration Team"
+    },
+    "assumptions": [],
+    "affectedZones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 30631,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "PW-003",
+    "agentId": "power",
+    "finding": "Three signalized intersections are dark in Z-01.",
+    "detail": "Signal Cedar Heights & 1st (SIG-01), Signal Cedar Heights & 3rd (SIG-02), and Signal Cedar Heights & 5th (SIG-03) in Z-01 are without power as of 2026-07-02T17:20:00, impacting traffic flow and safety.",
+    "severity": "medium",
+    "confidence": 1,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-3f1d1a95-5d11-4bcb-9f10-5dcd02634ae1",
+      "summary": "Identified three dark signals (SIG-01, SIG-02, SIG-03) in Z-01."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Coordinate traffic management in Z-01",
+     "description": "Deploy traffic control personnel to intersections of Signal Cedar Heights & 1st (SIG-01), Signal Cedar Heights & 3rd (SIG-02), and Signal Cedar Heights & 5th (SIG-03) in Z-01 to manage traffic manually until power is restored.",
+     "tier": "safe",
+     "timeWindow": "immediate",
+     "targetTeam": "Traffic Management"
+    },
+    "assumptions": [],
+    "affectedZones": [
+     "Z-01"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 30631,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "PW-004",
+    "agentId": "power",
+    "finding": "Three signalized intersections are dark in Z-05.",
+    "detail": "Signal Westbank & 1st (SIG-04), Signal Westbank & 3rd (SIG-05), and Signal Westbank & 5th (SIG-06) in Z-05 are without power as of 2026-07-02T17:20:00, impacting traffic flow and safety.",
+    "severity": "medium",
+    "confidence": 1,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-3f1d1a95-5d11-4bcb-9f10-5dcd02634ae1",
+      "summary": "Identified three dark signals (SIG-04, SIG-05, SIG-06) in Z-05."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Coordinate traffic management in Z-05",
+     "description": "Deploy traffic control personnel to intersections of Signal Westbank & 1st (SIG-04), Signal Westbank & 3rd (SIG-05), and Signal Westbank & 5th (SIG-06) in Z-05 to manage traffic manually until power is restored.",
+     "tier": "safe",
+     "timeWindow": "immediate",
+     "targetTeam": "Traffic Management"
+    },
+    "assumptions": [],
+    "affectedZones": [
+     "Z-05"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 30631,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "PW-005",
+    "agentId": "power",
+    "finding": "Outage OUT-1 is affecting a significant number of customers.",
+    "detail": "The outage OUT-1, caused by a storm-damaged feeder F-114 at SUB-W1 (SCADA lockout), has resulted in 15125 customers losing power in zones Z-01 and Z-05 as of 2026-07-02T17:20:00.",
+    "severity": "low",
+    "confidence": 1,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-f34beb0a-3335-43ac-9e36-e4b7e3a0a081",
+      "summary": "Reported 15125 customers out due to outage OUT-1."
+     }
+    ],
+    "recommendedAction": null,
+    "assumptions": [],
+    "affectedZones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 30631,
+  "event": {
+   "type": "agent.status",
+   "agentId": "power",
+   "state": "done"
+  }
+ },
+ {
+  "t": 42744,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "WX-001",
+    "agentId": "weather",
+    "finding": "Heavy rain will arrive in Cedar Heights (Z-01) and Westbank (Z-05) at 2026-07-02T19:10:00.",
+    "detail": "Both Cedar Heights (Z-01) and Westbank (Z-05) will experience heavy rain beginning at 2026-07-02T19:10:00, with a peak rainfall rate of 30 mm/hr and total accumulation of 60 mm expected. Westbank (Z-05) has a high flood relevance.",
+    "severity": "medium",
+    "confidence": 1,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-1a986c3e-e4f6-4d38-be81-6aa8d74090d2",
+      "summary": "Rain arrival and peak intensity for Z-01 and Z-05."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Prepare for localized flooding",
+     "description": "Advise residents in low-lying areas of Cedar Heights (Z-01) and Westbank (Z-05) to take precautions against localized flooding.",
+     "tier": "safe",
+     "timeWindow": "immediate",
+     "targetTeam": "Emergency Services"
+    },
+    "assumptions": [],
+    "affectedZones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "expiresAt": "2026-07-02T23:10:00",
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 42752,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "WX-002",
+    "agentId": "weather",
+    "finding": "Wind gusts of 65 km/h will restrict utility crew operations in Cedar Heights (Z-01) and Westbank (Z-05).",
+    "detail": "Gusts reaching 65 km/h are expected in Cedar Heights (Z-01) and Westbank (Z-05). This wind speed restricts bucket-truck work and poses a hazard for high-profile vehicles and crews working aloft. A Wind Advisory is active until 2026-07-02T20:20:00.",
+    "severity": "medium",
+    "confidence": 1,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-197a846d-903f-4ac2-a449-0902c873ca64",
+      "summary": "Wind gust speeds and crew impact for Z-01 and Z-05."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-7fb05b19-0416-4ce0-826e-cfeb7a984ba0",
+      "summary": "Wind Advisory details with gust speeds and expiry."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Suspend high-risk outdoor work",
+     "description": "Utility Crews are advised to suspend all non-essential bucket-truck operations and other high-risk outdoor work in Cedar Heights (Z-01) and Westbank (Z-05) until 2026-07-02T20:20:00.",
+     "tier": "safe",
+     "timeWindow": "immediate",
+     "targetTeam": "Utility Crews"
+    },
+    "assumptions": [],
+    "affectedZones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "expiresAt": "2026-07-02T20:20:00",
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 42752,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "WX-003",
+    "agentId": "weather",
+    "finding": "Westbank (Z-05) is at high risk of flooding due to heavy rainfall and an activating floodplain.",
+    "detail": "Westbank (Z-05) has a high flood relevance with a peak rainfall rate of 30 mm/hr and 60 mm accumulated, leading to the activation of floodplain FP-WEST-N. This increases the risk of localized flooding in the area. A Flood Watch is in effect until 2026-07-02T23:10:00.",
+    "severity": "high",
+    "confidence": 1,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-1a986c3e-e4f6-4d38-be81-6aa8d74090d2",
+      "summary": "High flood relevance and floodplain activation for Z-05."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-7fb05b19-0416-4ce0-826e-cfeb7a984ba0",
+      "summary": "Flood Watch alert with expiry."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Activate flood response protocols",
+     "description": "Emergency Services should prepare to activate flood response protocols for Westbank (Z-05), focusing on areas around floodplain FP-WEST-N. Monitor water levels closely.",
+     "tier": "safe",
+     "timeWindow": "immediate",
+     "targetTeam": "Emergency Services"
+    },
+    "assumptions": [],
+    "affectedZones": [
+     "Z-05"
+    ],
+    "expiresAt": "2026-07-02T23:10:00",
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 42752,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "WX-004",
+    "agentId": "weather",
+    "finding": "No direct evacuation routes were identified between Cedar Heights (Z-01) and Westbank (Z-05) for flood assessment.",
+    "detail": "The system did not identify any direct routes between Cedar Heights (Z-01) and Westbank (Z-05). Consequently, no specific per-route flood-window findings can be generated for these zones based on currently identified routes.",
+    "severity": "low",
+    "confidence": 1,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-17fceecb-62b2-4118-9819-175398650a75",
+      "summary": "No routes found from Z-01 to Z-05."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-2a5a17ad-3072-4456-a436-802768ae1456",
+      "summary": "No routes found from Z-05 to Z-01."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Evaluate alternative evacuation strategies",
+     "description": "Emergency Services should investigate alternative evacuation strategies or prepare for localized shelter-in-place options for Cedar Heights (Z-01) and Westbank (Z-05) due to the lack of identified direct evacuation routes.",
+     "tier": "needs_approval",
+     "timeWindow": "short_term",
+     "targetTeam": "Emergency Services"
+    },
+    "assumptions": [],
+    "affectedZones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 42752,
+  "event": {
+   "type": "agent.status",
+   "agentId": "weather",
+   "state": "done"
+  }
+ },
+ {
+  "t": 43721,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "TRAFFIC-001",
+    "agentId": "traffic",
+    "finding": "Significant traffic congestion and dark signals are present in zones Z-01 (Cedar Heights) and Z-05 (Westbank).",
+    "detail": "Corridor COR-RIVER-W, serving Z-01 and Z-05, shows a congestion level of 0.77 (including dark-signal penalty) and is operating with dark signals. Corridor COR-MAIN-W in Z-05 has a high congestion level of 0.93 (including dark-signal penalty) and is also experiencing dark signals. These conditions, as of 2026-07-02T17:20:00, severely impede traffic flow and reduce road capacity.",
+    "severity": "high",
+    "confidence": 1,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-b23ad966-764a-48dd-81f4-86c0195df011",
+      "summary": "Congestion data showing levels and dark signals for corridors in Z-01 and Z-05 as of 2026-07-02T17:20:00."
+     }
+    ],
+    "recommendedAction": null,
+    "assumptions": [],
+    "affectedZones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 43724,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "TRAFFIC-002",
+    "agentId": "traffic",
+    "finding": "No viable evacuation routes from affected zones Z-01 (Cedar Heights) and Z-05 (Westbank) could be identified.",
+    "detail": "Despite multiple attempts to find routes from Z-01 to Z-02, Z-03, and Z-06, and from Z-05 to Z-03 and Z-06, the `traffic_find_routes` tool returned no available routes as of 2026-07-02T17:20:00. This critical absence of routing information significantly hinders the ability to plan and execute an effective evacuation for the populations of 34200 in Z-01 and 31800 in Z-05.",
+    "severity": "critical",
+    "confidence": 1,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-c8b1ad4c-6bc7-49e2-96aa-0417cc87d28f",
+      "summary": "Tool call for routes from Z-01 to Z-03 returned no routes as of 2026-07-02T17:20:00."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-6c8cbca7-227e-4fb0-895e-ba34d192c1eb",
+      "summary": "Tool call for routes from Z-01 to Z-06 returned no routes as of 2026-07-02T17:20:00."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-3df0f33c-8883-4a16-834c-323413340380",
+      "summary": "Tool call for routes from Z-05 to Z-03 returned no routes as of 2026-07-02T17:20:00."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-3a7d1aca-a7f4-41b4-9327-f07d05954b43",
+      "summary": "Tool call for routes from Z-05 to Z-06 returned no routes as of 2026-07-02T17:20:00."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-7756dc16-9489-4061-b89f-efeb0542a29f",
+      "summary": "Tool call for routes from Z-01 to Z-02 returned no routes as of 2026-07-02T17:20:00."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-b06b0a23-49ee-427b-966c-57a37c255da0",
+      "summary": "Tool call for routes from Z-05 to Z-06 returned no routes as of 2026-07-02T17:20:00."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-fbdf324d-ac95-40f3-ad2c-1e983d2c52e1",
+      "summary": "Population data for Z-01 (34200) and Z-05 (31800) as of 2026-07-02T17:20:00."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Investigate route generation failure",
+     "description": "The CrisisGrid Operations team should immediately investigate why the `traffic_find_routes` tool is not returning any routes for evacuation from Z-01 and Z-05, even to adjacent connected zones, to identify potential system issues or unexpected scenario constraints. This is critical for planning any evacuation efforts.",
+     "tier": "blocked",
+     "timeWindow": "immediate",
+     "targetTeam": "CrisisGrid Operations"
+    },
+    "assumptions": [],
+    "affectedZones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   }
+  }
+ },
+ {
+  "t": 43724,
+  "event": {
+   "type": "agent.status",
+   "agentId": "traffic",
+   "state": "done"
+  }
+ },
+ {
+  "t": 43724,
+  "event": {
+   "type": "phase",
+   "phase": "conflict_detection"
+  }
+ },
+ {
+  "t": 43724,
+  "event": {
+   "type": "conflict.detected",
+   "conflict": {
+    "conflictId": "conf-shelter-z-01",
+    "kind": "shelter_power",
+    "subject": "SHL-CLB,SHL-DRC,SHL-FGP,SHL-LHS,SHL-WCC",
+    "agents": [
+     "shelter",
+     "power"
+    ],
+    "findings": [
+     "SHL-002",
+     "PW-001"
+    ],
+    "summary": "shelter plans ['SHL-CLB', 'SHL-DRC', 'SHL-FGP', 'SHL-LHS', 'SHL-WCC'] in zones ['Z-01', 'Z-05'] that power marks critical: Riverbend General Hospital is operating on backup power."
+   }
+  }
+ },
+ {
+  "t": 43724,
+  "event": {
+   "type": "phase",
+   "phase": "debate"
+  }
+ },
+ {
+  "t": 48704,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "shelter(debate)",
+   "tool": "shelters_list",
+   "args": {}
+  }
+ },
+ {
+  "t": 48779,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "shelter(debate)",
+   "tool": "shelters_list",
+   "toolCallId": "tc-0d79438b-fa59-4406-8ea2-b3f4f974d714"
+  }
+ },
+ {
+  "t": 53088,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "shelter(debate)",
+   "tool": "geo_get_zone_boundaries",
+   "args": {
+    "zones": [
+     "Z-01",
+     "Z-05"
+    ]
+   }
+  }
+ },
+ {
+  "t": 53143,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "shelter(debate)",
+   "tool": "geo_get_zone_boundaries",
+   "toolCallId": "tc-263ac368-8bc5-4b38-8cbf-b0796825cbeb"
+  }
+ },
+ {
+  "t": 69883,
+  "event": {
+   "type": "debate.turn",
+   "turn": {
+    "conflictId": "conf-shelter-z-01",
+    "round": 1,
+    "fromAgent": "shelter",
+    "toAgent": "power",
+    "stance": "amend",
+    "text": "My previous shelter allocation plan for zones Z-01 and Z-05 is being amended. The designated shelters were incorrectly identified as being within these zones, as confirmed by shelter location data (tc-0d79438b-fa59-4406-8ea2-b3f4f974d714). No suitable grid-powered shelters accepting new arrivals are currently identified within Z-01 or Z-05, necessitating a revised plan.",
+    "evidenceRefs": [
+     "tc-0d79438b-fa59-4406-8ea2-b3f4f974d714"
+    ],
+    "amendedFinding": {
+     "id": "SHL-002-Revised",
+     "agentId": "shelter",
+     "finding": "Previous shelter allocation for zones Z-01 and Z-05 is invalid as the designated shelters are not located within these zones. No grid-powered shelters accepting new arrivals are currently identified within Z-01 or Z-05, necessitating a revised plan for the 1840 individuals from these areas, particularly prioritizing Z-05 due to high medical device dependency.",
+     "detail": "Upon review with the latest shelter data (tc-0d79438b-fa59-4406-8ea2-b3f4f974d714), it has been identified that the shelters previously allocated to Z-05 (SHL-FGP, SHL-WCC) are actually located in Z-07 and Z-09 respectively. Similarly, shelters allocated to Z-01 (SHL-LHS, SHL-DRC, SHL-CLB) are in Z-06, Z-15, and Z-10. No suitable grid-powered shelters accepting new arrivals are found within Z-01 or Z-05. Z-05 continues to show a higher medical device dependency at 4.1% (tc-263ac368-8bc5-4b38-8cbf-b0796825cbeb).",
+     "severity": "high",
+     "confidence": 0.9,
+     "evidence": [
+      {
+       "kind": "tool_call",
+       "ref": "tc-0d79438b-fa59-4406-8ea2-b3f4f974d714",
+       "summary": "Shelter locations and power status."
+      },
+      {
+       "kind": "tool_call",
+       "ref": "tc-263ac368-8bc5-4b38-8cbf-b0796825cbeb",
+       "summary": "Vulnerability data for Z-01 and Z-05."
+      }
+     ],
+     "recommendedAction": {
+      "title": "Develop Revised Shelter Allocation Plan for Z-01 and Z-05",
+      "description": "Identify accessible, grid-powered shelters in zones adjacent to Z-01 and Z-05, or develop a transportation plan to move individuals from Z-01 and Z-05 to available shelters, prioritizing Z-05 due to medical device dependency.",
+      "tier": "needs_approval",
+      "timeWindow": "immediate",
+      "targetTeam": "Logistics"
+     },
+     "assumptions": [],
+     "affectedZones": [
+      "Z-01",
+      "Z-05"
+     ],
+     "expiresAt": null,
+     "carriedForward": false
+    }
+   }
+  }
+ },
+ {
+  "t": 69886,
+  "event": {
+   "type": "agent.finding",
+   "finding": {
+    "id": "SHL-002-Revised",
+    "agentId": "shelter",
+    "finding": "Previous shelter allocation for zones Z-01 and Z-05 is invalid as the designated shelters are not located within these zones. No grid-powered shelters accepting new arrivals are currently identified within Z-01 or Z-05, necessitating a revised plan for the 1840 individuals from these areas, particularly prioritizing Z-05 due to high medical device dependency.",
+    "detail": "Upon review with the latest shelter data (tc-0d79438b-fa59-4406-8ea2-b3f4f974d714), it has been identified that the shelters previously allocated to Z-05 (SHL-FGP, SHL-WCC) are actually located in Z-07 and Z-09 respectively. Similarly, shelters allocated to Z-01 (SHL-LHS, SHL-DRC, SHL-CLB) are in Z-06, Z-15, and Z-10. No suitable grid-powered shelters accepting new arrivals are found within Z-01 or Z-05. Z-05 continues to show a higher medical device dependency at 4.1% (tc-263ac368-8bc5-4b38-8cbf-b0796825cbeb).",
+    "severity": "high",
+    "confidence": 0.9,
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "tc-0d79438b-fa59-4406-8ea2-b3f4f974d714",
+      "summary": "Shelter locations and power status."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-263ac368-8bc5-4b38-8cbf-b0796825cbeb",
+      "summary": "Vulnerability data for Z-01 and Z-05."
+     }
+    ],
+    "recommendedAction": {
+     "title": "Develop Revised Shelter Allocation Plan for Z-01 and Z-05",
+     "description": "Identify accessible, grid-powered shelters in zones adjacent to Z-01 and Z-05, or develop a transportation plan to move individuals from Z-01 and Z-05 to available shelters, prioritizing Z-05 due to medical device dependency.",
+     "tier": "needs_approval",
+     "timeWindow": "immediate",
+     "targetTeam": "Logistics"
+    },
+    "assumptions": [],
+    "affectedZones": [
+     "Z-01",
+     "Z-05"
+    ],
+    "expiresAt": null,
+    "carriedForward": false
+   },
+   "amended": true
+  }
+ },
+ {
+  "t": 76111,
+  "event": {
+   "type": "debate.turn",
+   "turn": {
+    "conflictId": "conf-shelter-z-01",
+    "round": 1,
+    "fromAgent": "power",
+    "toAgent": "shelter",
+    "stance": "confirm",
+    "text": "The critical status of Riverbend General Hospital operating on backup power in Z-05, as identified in finding PW-001, is a distinct life-safety concern. The shelter agent's finding about grid-powered shelters in Z-05 does not alter the urgent need to prioritize power restoration for the hospital.",
+    "evidenceRefs": [
+     "PW-001"
+    ],
+    "amendedFinding": null
+   }
+  }
+ },
+ {
+  "t": 76112,
+  "event": {
+   "type": "phase",
+   "phase": "synthesis"
+  }
+ },
+ {
+  "t": 86171,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "commander",
+   "tool": "geo_overlay_risk_layers",
+   "args": {
+    "scenarioId": "westside-cascade",
+    "zones": [
+     "Z-01",
+     "Z-05"
+    ]
+   }
+  }
+ },
+ {
+  "t": 86202,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "commander",
+   "tool": "geo_overlay_risk_layers",
+   "toolCallId": "tc-6ccd795b-597a-4fcb-a1e4-6cefc111eec2"
+  }
+ },
+ {
+  "t": 114523,
+  "event": {
+   "type": "agent.retry",
+   "agentId": "commander",
+   "error": "1 validation error for IncidentActionPlan\nconflictResolutions.0.rationale\n  Field required [type=missing, input_value={'conflictId': 'conf-shel... 'decision': 'resolved'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+  }
+ },
+ {
+  "t": 134253,
+  "event": {
+   "type": "plan.draft",
+   "plan": {
+    "incidentId": "inc-21ae149b",
+    "revision": 1,
+    "situationSummary": "Cedar Heights (Z-01) and Westbank (Z-05) are experiencing power outages affecting 15125 customers, with Riverbend General Hospital (HOSP-RG) operating on backup power projected to deplete by 2026-07-03T01:20:00. Heavy rain is expected at 2026-07-02T19:10:00, and Westbank (Z-05) faces a high flood risk with floodplain FP-WEST-N activating. Wind gusts of 65 km/h restrict utility work until 2026-07-02T20:20:00. Both zones suffer from significant traffic congestion and dark signals, and no viable evacuation routes have been identified. An estimated 5280-6600 people require shelter, significantly exceeding the 2020 available beds, especially given that initially proposed shelters were incorrectly identified as being within the affected zones.",
+    "riskScore": 52.7,
+    "objectives": [
+     "Ensure continuous power to Riverbend General Hospital (HOSP-RG) before 2026-07-03T01:20:00.",
+     "Mitigate immediate flood and wind hazards in Z-01 and Z-05.",
+     "Restore power to critical infrastructure, specifically signalized intersections, in Z-01 and Z-05.",
+     "Establish viable evacuation routes and shelter options for the affected populations in Z-01 and Z-05.",
+     "Restore general power to the 15125 affected customers in Z-01 and Z-05."
+    ],
+    "actions": [
+     {
+      "id": "act-01",
+      "title": "Prioritize power restoration to Riverbend General Hospital",
+      "description": "Expedite power restoration efforts for CIRCUIT-Z-05 to ensure continuous power supply to Riverbend General Hospital (HOSP-RG) before its backup generators deplete at 2026-07-03T01:20:00.",
+      "tier": "needs_approval",
+      "timeWindow": "immediate",
+      "targetTeam": "Power Restoration Team",
+      "dependsOn": [],
+      "sourceFindings": [
+       "PW-001"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-02",
+      "title": "Suspend high-risk outdoor work",
+      "description": "Utility Crews are advised to suspend all non-essential bucket-truck operations and other high-risk outdoor work in Cedar Heights (Z-01) and Westbank (Z-05) until 2026-07-02T20:20:00.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Utility Crews",
+      "dependsOn": [],
+      "sourceFindings": [
+       "WX-002"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-03",
+      "title": "Activate flood response protocols for Z-05",
+      "description": "Emergency Services should prepare to activate flood response protocols for Westbank (Z-05), focusing on areas around floodplain FP-WEST-N. Monitor water levels closely.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Emergency Services",
+      "dependsOn": [],
+      "sourceFindings": [
+       "WX-003"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-04",
+      "title": "Coordinate traffic management in Z-01",
+      "description": "Deploy traffic control personnel to intersections of Signal Cedar Heights & 1st (SIG-01), Signal Cedar Heights & 3rd (SIG-02), and Signal Cedar Heights & 5th (SIG-03) in Z-01 to manage traffic manually until power is restored.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Traffic Management",
+      "dependsOn": [],
+      "sourceFindings": [
+       "PW-003"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-05",
+      "title": "Coordinate traffic management in Z-05",
+      "description": "Deploy traffic control personnel to intersections of Signal Westbank & 1st (SIG-04), Signal Westbank & 3rd (SIG-05), and Signal Westbank & 5th (SIG-06) in Z-05 to manage traffic manually until power is restored.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Traffic Management",
+      "dependsOn": [],
+      "sourceFindings": [
+       "PW-004"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-06",
+      "title": "Investigate route generation failure for Z-01 and Z-05",
+      "description": "The CrisisGrid Operations team should immediately investigate why the `traffic_find_routes` tool is not returning any routes for evacuation from Z-01 and Z-05, even to adjacent connected zones, to identify potential system issues or unexpected scenario constraints. This is critical for planning any evacuation efforts.",
+      "tier": "blocked",
+      "timeWindow": "immediate",
+      "targetTeam": "CrisisGrid Operations",
+      "dependsOn": [],
+      "sourceFindings": [
+       "TRAFFIC-002"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-07",
+      "title": "Recommend Bus Staging for Evacuation from Z-05",
+      "description": "Stage BUS-1, BUS-2, and BUS-3 at Z-05 for immediate evacuation of vulnerable residents (4.1% medical device dependency) to external shelters, pending identification of viable evacuation routes. This should be completed before '2026-07-02T17:20:00'.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Logistics",
+      "dependsOn": [
+       "Investigate route generation failure for Z-01 and Z-05"
+      ],
+      "sourceFindings": [
+       "SHL-003"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-08",
+      "title": "Initiate priority power restoration for CIRCUIT-Z-01",
+      "description": "Dispatch power restoration crews to address CIRCUIT-Z-01 (estimated 2.75 crew hours) to restore power to three dark signalized intersections (SIG-01, SIG-02, SIG-03) and 15125 customers, after prioritizing life-safety efforts for Riverbend General Hospital.",
+      "tier": "needs_approval",
+      "timeWindow": "short_term",
+      "targetTeam": "Power Restoration Team",
+      "dependsOn": [
+       "Prioritize power restoration to Riverbend General Hospital"
+      ],
+      "sourceFindings": [
+       "PW-002",
+       "PW-005"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-09",
+      "title": "Evaluate alternative evacuation/shelter-in-place strategies",
+      "description": "Emergency Services should investigate alternative evacuation strategies or prepare for localized shelter-in-place options for Cedar Heights (Z-01) and Westbank (Z-05) due to the lack of identified direct evacuation routes and the absence of suitable grid-powered shelters within the affected zones.",
+      "tier": "needs_approval",
+      "timeWindow": "short_term",
+      "targetTeam": "Emergency Services",
+      "dependsOn": [
+       "Investigate route generation failure for Z-01 and Z-05"
+      ],
+      "sourceFindings": [
+       "WX-004",
+       "TRAFFIC-002",
+       "SHL-001"
+      ],
+      "simulated": true
+     }
+    ],
+    "timePhases": {
+     "immediate": [
+      "Prioritize power restoration to Riverbend General Hospital",
+      "Suspend high-risk outdoor work",
+      "Activate flood response protocols for Z-05",
+      "Coordinate traffic management in Z-01",
+      "Coordinate traffic management in Z-05",
+      "Investigate route generation failure for Z-01 and Z-05",
+      "Recommend Bus Staging for Evacuation from Z-05"
+     ],
+     "shortTerm": [
+      "Initiate priority power restoration for CIRCUIT-Z-01",
+      "Evaluate alternative evacuation/shelter-in-place strategies"
+     ],
+     "nextPeriod": []
+    },
+    "conflictResolutions": [
+     {
+      "conflictId": "conf-shelter-z-01",
+      "decision": "The shelter agent's debate turn (tc-0d79438b-fa59-4406-8ea2-b3f4f974d714) confirmed that the designated shelters were not located within Z-01 or Z-05. This directly invalidates the prior allocation plan. The power agent's stance (PW-001) regarding Riverbend General Hospital's critical backup power status is a separate, higher-priority life-safety concern and is unaffected by the shelter location issue. The resolution acknowledges the lack of internal shelter capacity (SHL-001) and directs efforts towards external solutions while maintaining the hospital's power as paramount.",
+      "rationale": "The shelter agent's debate turn (tc-0d79438b-fa59-4406-8ea2-b3f4f974d714) confirmed that the designated shelters were not located within Z-01 or Z-05. This directly invalidates the prior allocation plan. The power agent's stance (PW-001) regarding Riverbend General Hospital's critical backup power status is a separate, higher-priority life-safety concern and is unaffected by the shelter location issue. The resolution acknowledges the lack of internal shelter capacity (SHL-001) and directs efforts towards external solutions while maintaining the hospital's power as paramount.",
+      "evidenceRefs": []
+     }
+    ],
+    "commsPlan": [
+     "publicAdvisories: [{'title': 'Heavy Rain, Flood Risk, and Power Outage Advisory', 'audience': 'Residents of Cedar Heights (Z-01) and Westbank (Z-05)', 'message': 'Heavy rain is expected in Cedar Heights (Z-01) and Westbank (Z-05) starting 2026-07-02T19:10:00. Westbank (Z-05) is at high risk of localized flooding. High winds (65 km/h) are present. Power outages are affecting both areas, with dark signalized intersections. Residents in low-lying areas should take precautions against localized flooding. Exercise extreme caution when driving due to dark signals and congestion. Stay indoors due to high winds until 2026-07-02T20:20:00.', 'timeWindow': 'immediate', 'sourceFindings': ['WX-001', 'WX-002', 'WX-003', 'PW-003', 'PW-004', 'TRAFFIC-001'], 'tier': 'needs_approval', 'evidence': [{'kind': 'tool_call', 'ref': 'tc-1a986c3e-e4f6-4d38-be81-6aa8d74090d2', 'summary': 'Heavy rain will arrive in Cedar Heights (Z-01) and Westbank (Z-05) at 2026-07-02T19:10:00, with a peak rainfall rate of 30 mm/hr and total accumulation of 60 mm expected.'}, {'kind': 'tool_call', 'ref': 'tc-197a846d-903f-4ac2-a449-0902c873ca64', 'summary': 'Wind gusts of 65 km/h are expected in Cedar Heights (Z-01) and Westbank (Z-05) until 2026-07-02T20:20:00.'}, {'kind': 'tool_call', 'ref': 'tc-7fb05b19-0416-4ce0-826e-cfeb7a984ba0', 'summary': 'Westbank (Z-05) has a high flood relevance, and a Flood Watch is in effect until 2026-07-02T23:10:00.'}, {'kind': 'tool_call', 'ref': 'tc-3f1d1a95-5d11-4bcb-9f10-5dcd02634ae1', 'summary': 'Signalized intersections in Z-01 and Z-05 are without power as of 2026-07-02T17:20:00.'}, {'kind': 'tool_call', 'ref': 'tc-b23ad966-764a-48dd-81f4-86c0195df011', 'summary': 'Corridors COR-RIVER-W and COR-MAIN-W show high congestion levels including dark-signal penalties in Z-01 and Z-05.'}]}]"
+    ],
+    "unresolvedRisks": [
+     "The inability to identify viable evacuation routes from Cedar Heights (Z-01) and Westbank (Z-05) (TRAFFIC-002, WX-004) leaves 66000 people, including 5280-6600 requiring shelter, without a clear and safe egress strategy, especially with heavy rain and potential flooding imminent.",
+     "A critical deficit in available shelter capacity (2020 beds vs. 5280-6600 people needing shelter per SHL-001) persists, exacerbated by the confirmed lack of suitable grid-powered shelters within the affected zones, posing a significant challenge for population safety.",
+     "The impact of ongoing high winds on power restoration timelines for Riverbend General Hospital (HOSP-RG) remains a risk if essential bucket-truck work is needed and cannot be safely completed before the wind advisory expires at 2026-07-02T20:20:00 and before the generator depletion at 2026-07-03T01:20:00 (PW-001, WX-002)."
+    ],
+    "assumptions": [
+     "The Power Restoration Team has sufficient resources and personnel to address both CIRCUIT-Z-05 and CIRCUIT-Z-01, allowing for prioritized restoration without critical delays.",
+     "The staged buses (BUS-1, BUS-2, BUS-3) can safely access Westbank (Z-05) and transport vulnerable individuals to external shelters once viable routes are identified or established by the CrisisGrid Operations team."
+    ],
+    "confidence": 0.9
+   },
+   "revision": 1
+  }
+ },
+ {
+  "t": 148973,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "args": {
+    "action": {
+     "description": "Expedite power restoration efforts for CIRCUIT-Z-05 to ensure continuous power supply to Riverbend General Hospital (HOSP-RG) before its backup generators deplete at 2026-07-03T01:20:00.",
+     "kind": "recommendation",
+     "simulated": true,
+     "title": "Prioritize power restoration to Riverbend General Hospital"
+    }
+   }
+  }
+ },
+ {
+  "t": 148974,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "args": {
+    "action": {
+     "description": "The CrisisGrid Operations team should immediately investigate why the `traffic_find_routes` tool is not returning any routes for evacuation from Z-01 and Z-05, even to adjacent connected zones, to identify potential system issues or unexpected scenario constraints. This is critical for planning any evacuation efforts.",
+     "kind": "analysis",
+     "simulated": true,
+     "title": "Investigate route generation failure for Z-01 and Z-05"
+    }
+   }
+  }
+ },
+ {
+  "t": 148974,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "args": {
+    "action": {
+     "description": "Stage BUS-1, BUS-2, and BUS-3 at Z-05 for immediate evacuation of vulnerable residents (4.1% medical device dependency) to external shelters, pending identification of viable evacuation routes. This should be completed before '2026-07-02T17:20:00'.",
+     "kind": "recommendation",
+     "simulated": true,
+     "title": "Recommend Bus Staging for Evacuation from Z-05"
+    }
+   }
+  }
+ },
+ {
+  "t": 148974,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "args": {
+    "action": {
+     "description": "Dispatch power restoration crews to address CIRCUIT-Z-01 (estimated 2.75 crew hours) to restore power to three dark signalized intersections (SIG-01, SIG-02, SIG-03) and 15125 customers, after prioritizing life-safety efforts for Riverbend General Hospital.",
+     "kind": "recommendation",
+     "simulated": true,
+     "title": "Initiate priority power restoration for CIRCUIT-Z-01"
+    }
+   }
+  }
+ },
+ {
+  "t": 148974,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "args": {
+    "action": {
+     "description": "Emergency Services should investigate alternative evacuation strategies or prepare for localized shelter-in-place options for Cedar Heights (Z-01) and Westbank (Z-05) due to the lack of identified direct evacuation routes and the absence of suitable grid-powered shelters within the affected zones.",
+     "kind": "analysis",
+     "simulated": true,
+     "title": "Evaluate alternative evacuation/shelter-in-place strategies"
+    }
+   }
+  }
+ },
+ {
+  "t": 149063,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "toolCallId": "tc-dc3d8f0d-fb49-402b-8ff7-eb8218ab60b6"
+  }
+ },
+ {
+  "t": 149066,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "toolCallId": "tc-ce12c498-27f4-43fe-be83-3d21b7e908d9"
+  }
+ },
+ {
+  "t": 149066,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "toolCallId": "tc-6b86b397-da04-4bb0-ab3e-9190c39631c7"
+  }
+ },
+ {
+  "t": 149066,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "toolCallId": "tc-586a92a1-8af4-4aa0-9458-f732447c8895"
+  }
+ },
+ {
+  "t": 149066,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "toolCallId": "tc-99a5dda5-880b-4c25-af46-e6cfb98007b3"
+  }
+ },
+ {
+  "t": 155023,
+  "event": {
+   "type": "safety.review",
+   "review": {
+    "verdict": "revise",
+    "revisions": [
+     {
+      "issue": "Action 'Prioritize power restoration to Riverbend General Hospital' (act-01) has an incorrect tier.",
+      "requiredChange": "Change the 'tier' for act-01 from 'needs_approval' to 'safe', based on safety_evaluate_action classification as 'recommendation' and rule R-99."
+     },
+     {
+      "issue": "Action 'Investigate route generation failure for Z-01 and Z-05' (act-06) has an incorrect tier.",
+      "requiredChange": "Change the 'tier' for act-06 from 'blocked' to 'safe', based on safety_evaluate_action classification as 'analysis' and rule R-99."
+     },
+     {
+      "issue": "Action 'Initiate priority power restoration for CIRCUIT-Z-01' (act-08) has an incorrect tier.",
+      "requiredChange": "Change the 'tier' for act-08 from 'needs_approval' to 'safe', based on safety_evaluate_action classification as 'recommendation' and rule R-99."
+     },
+     {
+      "issue": "Action 'Evaluate alternative evacuation/shelter-in-place strategies' (act-09) has an incorrect tier.",
+      "requiredChange": "Change the 'tier' for act-09 from 'needs_approval' to 'safe', based on safety_evaluate_action classification as 'analysis' and rule R-99."
+     }
+    ],
+    "notes": "Verified that every action has evidence via sourceFindings. No real-world dispatch or broadcast actions are present. Evacuation guidance in act-07 includes vulnerable-population handling. External communications (publicAdvisories) are correctly marked as 'needs_approval'. All simulated actions are correctly labeled. Unresolved risks and assumptions are present and appear honest given the situation summary. The riskScore consistency with the risk overlay tool is assumed as it cannot be verified by this agent. Tiers for actions act-01, act-06, act-08, and act-09 were evaluated using safety_evaluate_action (tc-dc3d8f0d-fb49-402b-8ff7-eb8218ab60b6, tc-ce12c498-27f4-43fe-be83-3d21b7e908d9, tc-586a92a1-8af4-4aa0-9458-f732447c8895, tc-99a5dda5-880b-4c25-af46-e6cfb98007b3) and found to be 'safe' as they are classified as analysis, drafting, or simulation actions (rule R-99). These tiers need to be updated in the plan."
+   },
+   "loop": 1
+  }
+ },
+ {
+  "t": 174815,
+  "event": {
+   "type": "plan.draft",
+   "plan": {
+    "incidentId": "inc-21ae149b",
+    "revision": 2,
+    "situationSummary": "Cedar Heights (Z-01) and Westbank (Z-05) are experiencing power outages affecting 15125 customers, with Riverbend General Hospital (HOSP-RG) operating on backup power projected to deplete by 2026-07-03T01:20:00. Heavy rain is expected at 2026-07-02T19:10:00, and Westbank (Z-05) faces a high flood risk with floodplain FP-WEST-N activating. Wind gusts of 65 km/h restrict utility work until 2026-07-02T20:20:00. Both zones suffer from significant traffic congestion and dark signals, and no viable evacuation routes have been identified. An estimated 5280-6600 people require shelter, significantly exceeding the 2020 available beds, especially given that initially proposed shelters were incorrectly identified as being within the affected zones.",
+    "riskScore": 52.7,
+    "objectives": [
+     "Ensure continuous power to Riverbend General Hospital (HOSP-RG) before 2026-07-03T01:20:00.",
+     "Mitigate immediate flood and wind hazards in Z-01 and Z-05.",
+     "Restore power to critical infrastructure, specifically signalized intersections, in Z-01 and Z-05.",
+     "Establish viable evacuation routes and shelter options for the affected populations in Z-01 and Z-05.",
+     "Restore general power to the 15125 affected customers in Z-01 and Z-05."
+    ],
+    "actions": [
+     {
+      "id": "act-01",
+      "title": "Prioritize power restoration to Riverbend General Hospital",
+      "description": "Expedite power restoration efforts for CIRCUIT-Z-05 to ensure continuous power supply to Riverbend General Hospital (HOSP-RG) before its backup generators deplete at 2026-07-03T01:20:00.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Power Restoration Team",
+      "dependsOn": [],
+      "sourceFindings": [
+       "PW-001"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-02",
+      "title": "Suspend high-risk outdoor work",
+      "description": "Utility Crews are advised to suspend all non-essential bucket-truck operations and other high-risk outdoor work in Cedar Heights (Z-01) and Westbank (Z-05) until 2026-07-02T20:20:00.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Utility Crews",
+      "dependsOn": [],
+      "sourceFindings": [
+       "WX-002"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-03",
+      "title": "Activate flood response protocols for Z-05",
+      "description": "Emergency Services should prepare to activate flood response protocols for Westbank (Z-05), focusing on areas around floodplain FP-WEST-N. Monitor water levels closely.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Emergency Services",
+      "dependsOn": [],
+      "sourceFindings": [
+       "WX-003"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-04",
+      "title": "Coordinate traffic management in Z-01",
+      "description": "Deploy traffic control personnel to intersections of Signal Cedar Heights & 1st (SIG-01), Signal Cedar Heights & 3rd (SIG-02), and Signal Cedar Heights & 5th (SIG-03) in Z-01 to manage traffic manually until power is restored.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Traffic Management",
+      "dependsOn": [],
+      "sourceFindings": [
+       "PW-003"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-05",
+      "title": "Coordinate traffic management in Z-05",
+      "description": "Deploy traffic control personnel to intersections of Signal Westbank & 1st (SIG-04), Signal Westbank & 3rd (SIG-05), and Signal Westbank & 5th (SIG-06) in Z-05 to manage traffic manually until power is restored.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Traffic Management",
+      "dependsOn": [],
+      "sourceFindings": [
+       "PW-004"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-06",
+      "title": "Investigate route generation failure for Z-01 and Z-05",
+      "description": "The CrisisGrid Operations team should immediately investigate why the `traffic_find_routes` tool is not returning any routes for evacuation from Z-01 and Z-05, even to adjacent connected zones, to identify potential system issues or unexpected scenario constraints. This is critical for planning any evacuation efforts.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "CrisisGrid Operations",
+      "dependsOn": [],
+      "sourceFindings": [
+       "TRAFFIC-002"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-07",
+      "title": "Recommend Bus Staging for Evacuation from Z-05",
+      "description": "Stage BUS-1, BUS-2, and BUS-3 at Z-05 for immediate evacuation of vulnerable residents (4.1% medical device dependency) to external shelters, pending identification of viable evacuation routes. This should be completed before '2026-07-02T17:20:00'.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Logistics",
+      "dependsOn": [
+       "Investigate route generation failure for Z-01 and Z-05"
+      ],
+      "sourceFindings": [
+       "SHL-003"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-08",
+      "title": "Initiate priority power restoration for CIRCUIT-Z-01",
+      "description": "Dispatch power restoration crews to address CIRCUIT-Z-01 (estimated 2.75 crew hours) to restore power to three dark signalized intersections (SIG-01, SIG-02, SIG-03) and 15125 customers, after prioritizing life-safety efforts for Riverbend General Hospital.",
+      "tier": "safe",
+      "timeWindow": "short_term",
+      "targetTeam": "Power Restoration Team",
+      "dependsOn": [
+       "Prioritize power restoration to Riverbend General Hospital"
+      ],
+      "sourceFindings": [
+       "PW-002",
+       "PW-005"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-09",
+      "title": "Evaluate alternative evacuation/shelter-in-place strategies",
+      "description": "Emergency Services should investigate alternative evacuation strategies or prepare for localized shelter-in-place options for Cedar Heights (Z-01) and Westbank (Z-05) due to the lack of identified direct evacuation routes and the absence of suitable grid-powered shelters within the affected zones.",
+      "tier": "safe",
+      "timeWindow": "short_term",
+      "targetTeam": "Emergency Services",
+      "dependsOn": [
+       "Investigate route generation failure for Z-01 and Z-05"
+      ],
+      "sourceFindings": [
+       "WX-004",
+       "TRAFFIC-002",
+       "SHL-001"
+      ],
+      "simulated": true
+     }
+    ],
+    "timePhases": {
+     "immediate": [
+      "Prioritize power restoration to Riverbend General Hospital",
+      "Suspend high-risk outdoor work",
+      "Activate flood response protocols for Z-05",
+      "Coordinate traffic management in Z-01",
+      "Coordinate traffic management in Z-05",
+      "Investigate route generation failure for Z-01 and Z-05",
+      "Recommend Bus Staging for Evacuation from Z-05"
+     ],
+     "shortTerm": [
+      "Initiate priority power restoration for CIRCUIT-Z-01",
+      "Evaluate alternative evacuation/shelter-in-place strategies"
+     ],
+     "nextPeriod": []
+    },
+    "conflictResolutions": [
+     {
+      "conflictId": "conf-shelter-z-01",
+      "decision": "The shelter agent's debate turn (tc-0d79438b-fa59-4406-8ea2-b3f4f974d714) confirmed that the designated shelters were not located within Z-01 or Z-05. This directly invalidates the prior allocation plan. The power agent's stance (PW-001) regarding Riverbend General Hospital's critical backup power status is a separate, higher-priority life-safety concern and is unaffected by the shelter location issue. The resolution acknowledges the lack of internal shelter capacity (SHL-001) and directs efforts towards external solutions while maintaining the hospital's power as paramount.",
+      "rationale": "The shelter agent's debate turn (tc-0d79438b-fa59-4406-8ea2-b3f4f974d714) confirmed that the designated shelters were not located within Z-01 or Z-05. This directly invalidates the prior allocation plan. The power agent's stance (PW-001) regarding Riverbend General Hospital's critical backup power status is a separate, higher-priority life-safety concern and is unaffected by the shelter location issue. The resolution acknowledges the lack of internal shelter capacity (SHL-001) and directs efforts towards external solutions while maintaining the hospital's power as paramount.",
+      "evidenceRefs": []
+     }
+    ],
+    "commsPlan": [
+     "publicAdvisories: [{'title': 'Heavy Rain, Flood Risk, and Power Outage Advisory', 'audience': 'Residents of Cedar Heights (Z-01) and Westbank (Z-05)', 'message': 'Heavy rain is expected in Cedar Heights (Z-01) and Westbank (Z-05) starting 2026-07-02T19:10:00. Westbank (Z-05) is at high risk of localized flooding. High winds (65 km/h) are present. Power outages are affecting both areas, with dark signalized intersections. Residents in low-lying areas should take precautions against localized flooding. Exercise extreme caution when driving due to dark signals and congestion. Stay indoors due to high winds until 2026-07-02T20:20:00.', 'timeWindow': 'immediate', 'sourceFindings': ['WX-001', 'WX-002', 'WX-003', 'PW-003', 'PW-004', 'TRAFFIC-001'], 'tier': 'needs_approval', 'evidence': [{'kind': 'tool_call', 'ref': 'tc-1a986c3e-e4f6-4d38-be81-6aa8d74090d2', 'summary': 'Heavy rain will arrive in Cedar Heights (Z-01) and Westbank (Z-05) at 2026-07-02T19:10:00, with a peak rainfall rate of 30 mm/hr and total accumulation of 60 mm expected.'}, {'kind': 'tool_call', 'ref': 'tc-197a846d-903f-4ac2-a449-0902c873ca64', 'summary': 'Wind gusts of 65 km/h are expected in Cedar Heights (Z-01) and Westbank (Z-05) until 2026-07-02T20:20:00.'}, {'kind': 'tool_call', 'ref': 'tc-7fb05b19-0416-4ce0-826e-cfeb7a984ba0', 'summary': 'Westbank (Z-05) has a high flood relevance, and a Flood Watch is in effect until 2026-07-02T23:10:00.'}, {'kind': 'tool_call', 'ref': 'tc-3f1d1a95-5d11-4bcb-9f10-5dcd02634ae1', 'summary': 'Signalized intersections in Z-01 and Z-05 are without power as of 2026-07-02T17:20:00.'}, {'kind': 'tool_call', 'ref': 'tc-b23ad966-764a-48dd-81f4-86c0195df011', 'summary': 'Corridors COR-RIVER-W and COR-MAIN-W show high congestion levels including dark-signal penalties in Z-01 and Z-05.'}]}]"
+    ],
+    "unresolvedRisks": [
+     "The inability to identify viable evacuation routes from Cedar Heights (Z-01) and Westbank (Z-05) (TRAFFIC-002, WX-004) leaves 66000 people, including 5280-6600 requiring shelter, without a clear and safe egress strategy, especially with heavy rain and potential flooding imminent.",
+     "A critical deficit in available shelter capacity (2020 beds vs. 5280-6600 people needing shelter per SHL-001) persists, exacerbated by the confirmed lack of suitable grid-powered shelters within the affected zones, posing a significant challenge for population safety.",
+     "The impact of ongoing high winds on power restoration timelines for Riverbend General Hospital (HOSP-RG) remains a risk if essential bucket-truck work is needed and cannot be safely completed before the wind advisory expires at 2026-07-02T20:20:00 and before the generator depletion at 2026-07-03T01:20:00 (PW-001, WX-002)."
+    ],
+    "assumptions": [
+     "The Power Restoration Team has sufficient resources and personnel to address both CIRCUIT-Z-05 and CIRCUIT-Z-01, allowing for prioritized restoration without critical delays.",
+     "The staged buses (BUS-1, BUS-2, BUS-3) can safely access Westbank (Z-05) and transport vulnerable individuals to external shelters once viable routes are identified or established by the CrisisGrid Operations team."
+    ],
+    "confidence": 0.9
+   },
+   "revision": 2
+  }
+ },
+ {
+  "t": 180928,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "args": {
+    "action": {
+     "kind": "recommendation",
+     "description": "Expedite power restoration efforts for CIRCUIT-Z-05 to ensure continuous power supply to Riverbend General Hospital (HOSP-RG) before its backup generators deplete at 2026-07-03T01:20:00.",
+     "simulated": true,
+     "title": "Prioritize power restoration to Riverbend General Hospital"
+    }
+   }
+  }
+ },
+ {
+  "t": 180929,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "args": {
+    "action": {
+     "description": "The CrisisGrid Operations team should immediately investigate why the `traffic_find_routes` tool is not returning any routes for evacuation from Z-01 and Z-05, even to adjacent connected zones, to identify potential system issues or unexpected scenario constraints. This is critical for planning any evacuation efforts.",
+     "kind": "analysis",
+     "title": "Investigate route generation failure for Z-01 and Z-05",
+     "simulated": true
+    }
+   }
+  }
+ },
+ {
+  "t": 180929,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "args": {
+    "action": {
+     "kind": "recommendation",
+     "description": "Dispatch power restoration crews to address CIRCUIT-Z-01 (estimated 2.75 crew hours) to restore power to three dark signalized intersections (SIG-01, SIG-02, SIG-03) and 15125 customers, after prioritizing life-safety efforts for Riverbend General Hospital.",
+     "simulated": true,
+     "title": "Initiate priority power restoration for CIRCUIT-Z-01"
+    }
+   }
+  }
+ },
+ {
+  "t": 180929,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "args": {
+    "action": {
+     "description": "Emergency Services should investigate alternative evacuation strategies or prepare for localized shelter-in-place options for Cedar Heights (Z-01) and Westbank (Z-05) due to the lack of identified direct evacuation routes and the absence of suitable grid-powered shelters within the affected zones.",
+     "kind": "analysis",
+     "title": "Evaluate alternative evacuation/shelter-in-place strategies",
+     "simulated": true
+    }
+   }
+  }
+ },
+ {
+  "t": 180929,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "args": {
+    "action": {
+     "title": "Recommend Bus Staging for Evacuation from Z-05",
+     "simulated": true,
+     "description": "Stage BUS-1, BUS-2, and BUS-3 at Z-05 for immediate evacuation of vulnerable residents (4.1% medical device dependency) to external shelters, pending identification of viable evacuation routes. This should be completed before '2026-07-02T17:20:00'.",
+     "kind": "recommendation"
+    }
+   }
+  }
+ },
+ {
+  "t": 181007,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "toolCallId": "tc-df85bcce-c422-486e-88c0-faee3e2b1425"
+  }
+ },
+ {
+  "t": 181011,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "toolCallId": "tc-b161231f-6041-4fb3-b992-e1dd4300ba8b"
+  }
+ },
+ {
+  "t": 181011,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "toolCallId": "tc-493995d8-d8e2-479f-93dc-5986e27524cf"
+  }
+ },
+ {
+  "t": 181011,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "toolCallId": "tc-42576b09-5f3d-4063-9af8-4e086a657380"
+  }
+ },
+ {
+  "t": 181011,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "safety",
+   "tool": "safety_evaluate_action",
+   "toolCallId": "tc-0166ad9e-ec9e-4463-935e-6e175f845254"
+  }
+ },
+ {
+  "t": 183259,
+  "event": {
+   "type": "safety.review",
+   "review": {
+    "verdict": "approved",
+    "revisions": [],
+    "notes": "All actions have evidence via sourceFindings. No real-world dispatch or broadcast actions are present. Evacuation guidance in act-07 ('Recommend Bus Staging for Evacuation from Z-05') includes vulnerable-population handling by specifying 'vulnerable residents (4.1% medical device dependency)'. External communications (publicAdvisories) are correctly marked as 'needs_approval'. All actions are labeled as 'simulated': true. UnresolvedRisks and assumptions are present and appear honest based on the situation summary. The riskScore consistency with the risk overlay tool is assumed as it cannot be verified by this agent. The tiers for actions act-01, act-06, act-07, act-08, and act-09 have been verified using safety_evaluate_action (tc-df85bcce-c422-486e-88c0-faee3e2b1425, tc-b161231f-6041-4fb3-b992-e1dd4300ba8b, tc-0166ad9e-ec9e-4463-935e-6e175f845254, tc-493995d8-d8e2-479f-93dc-5986e27524cf, tc-42576b09-5f3d-4063-9af8-4e086a657380) and are consistently classified as 'safe' according to rule R-99 for analysis, recommendation, or simulation actions."
+   },
+   "loop": 2
+  }
+ },
+ {
+  "t": 183313,
+  "event": {
+   "type": "plan.final",
+   "plan": {
+    "incidentId": "inc-21ae149b",
+    "revision": 2,
+    "situationSummary": "Cedar Heights (Z-01) and Westbank (Z-05) are experiencing power outages affecting 15125 customers, with Riverbend General Hospital (HOSP-RG) operating on backup power projected to deplete by 2026-07-03T01:20:00. Heavy rain is expected at 2026-07-02T19:10:00, and Westbank (Z-05) faces a high flood risk with floodplain FP-WEST-N activating. Wind gusts of 65 km/h restrict utility work until 2026-07-02T20:20:00. Both zones suffer from significant traffic congestion and dark signals, and no viable evacuation routes have been identified. An estimated 5280-6600 people require shelter, significantly exceeding the 2020 available beds, especially given that initially proposed shelters were incorrectly identified as being within the affected zones.",
+    "riskScore": 52.7,
+    "objectives": [
+     "Ensure continuous power to Riverbend General Hospital (HOSP-RG) before 2026-07-03T01:20:00.",
+     "Mitigate immediate flood and wind hazards in Z-01 and Z-05.",
+     "Restore power to critical infrastructure, specifically signalized intersections, in Z-01 and Z-05.",
+     "Establish viable evacuation routes and shelter options for the affected populations in Z-01 and Z-05.",
+     "Restore general power to the 15125 affected customers in Z-01 and Z-05."
+    ],
+    "actions": [
+     {
+      "id": "act-01",
+      "title": "Prioritize power restoration to Riverbend General Hospital",
+      "description": "Expedite power restoration efforts for CIRCUIT-Z-05 to ensure continuous power supply to Riverbend General Hospital (HOSP-RG) before its backup generators deplete at 2026-07-03T01:20:00.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Power Restoration Team",
+      "dependsOn": [],
+      "sourceFindings": [
+       "PW-001"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-02",
+      "title": "Suspend high-risk outdoor work",
+      "description": "Utility Crews are advised to suspend all non-essential bucket-truck operations and other high-risk outdoor work in Cedar Heights (Z-01) and Westbank (Z-05) until 2026-07-02T20:20:00.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Utility Crews",
+      "dependsOn": [],
+      "sourceFindings": [
+       "WX-002"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-03",
+      "title": "Activate flood response protocols for Z-05",
+      "description": "Emergency Services should prepare to activate flood response protocols for Westbank (Z-05), focusing on areas around floodplain FP-WEST-N. Monitor water levels closely.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Emergency Services",
+      "dependsOn": [],
+      "sourceFindings": [
+       "WX-003"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-04",
+      "title": "Coordinate traffic management in Z-01",
+      "description": "Deploy traffic control personnel to intersections of Signal Cedar Heights & 1st (SIG-01), Signal Cedar Heights & 3rd (SIG-02), and Signal Cedar Heights & 5th (SIG-03) in Z-01 to manage traffic manually until power is restored.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Traffic Management",
+      "dependsOn": [],
+      "sourceFindings": [
+       "PW-003"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-05",
+      "title": "Coordinate traffic management in Z-05",
+      "description": "Deploy traffic control personnel to intersections of Signal Westbank & 1st (SIG-04), Signal Westbank & 3rd (SIG-05), and Signal Westbank & 5th (SIG-06) in Z-05 to manage traffic manually until power is restored.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Traffic Management",
+      "dependsOn": [],
+      "sourceFindings": [
+       "PW-004"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-06",
+      "title": "Investigate route generation failure for Z-01 and Z-05",
+      "description": "The CrisisGrid Operations team should immediately investigate why the `traffic_find_routes` tool is not returning any routes for evacuation from Z-01 and Z-05, even to adjacent connected zones, to identify potential system issues or unexpected scenario constraints. This is critical for planning any evacuation efforts.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "CrisisGrid Operations",
+      "dependsOn": [],
+      "sourceFindings": [
+       "TRAFFIC-002"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-07",
+      "title": "Recommend Bus Staging for Evacuation from Z-05",
+      "description": "Stage BUS-1, BUS-2, and BUS-3 at Z-05 for immediate evacuation of vulnerable residents (4.1% medical device dependency) to external shelters, pending identification of viable evacuation routes. This should be completed before '2026-07-02T17:20:00'.",
+      "tier": "safe",
+      "timeWindow": "immediate",
+      "targetTeam": "Logistics",
+      "dependsOn": [
+       "Investigate route generation failure for Z-01 and Z-05"
+      ],
+      "sourceFindings": [
+       "SHL-003"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-08",
+      "title": "Initiate priority power restoration for CIRCUIT-Z-01",
+      "description": "Dispatch power restoration crews to address CIRCUIT-Z-01 (estimated 2.75 crew hours) to restore power to three dark signalized intersections (SIG-01, SIG-02, SIG-03) and 15125 customers, after prioritizing life-safety efforts for Riverbend General Hospital.",
+      "tier": "safe",
+      "timeWindow": "short_term",
+      "targetTeam": "Power Restoration Team",
+      "dependsOn": [
+       "Prioritize power restoration to Riverbend General Hospital"
+      ],
+      "sourceFindings": [
+       "PW-002",
+       "PW-005"
+      ],
+      "simulated": true
+     },
+     {
+      "id": "act-09",
+      "title": "Evaluate alternative evacuation/shelter-in-place strategies",
+      "description": "Emergency Services should investigate alternative evacuation strategies or prepare for localized shelter-in-place options for Cedar Heights (Z-01) and Westbank (Z-05) due to the lack of identified direct evacuation routes and the absence of suitable grid-powered shelters within the affected zones.",
+      "tier": "safe",
+      "timeWindow": "short_term",
+      "targetTeam": "Emergency Services",
+      "dependsOn": [
+       "Investigate route generation failure for Z-01 and Z-05"
+      ],
+      "sourceFindings": [
+       "WX-004",
+       "TRAFFIC-002",
+       "SHL-001"
+      ],
+      "simulated": true
+     }
+    ],
+    "timePhases": {
+     "immediate": [
+      "Prioritize power restoration to Riverbend General Hospital",
+      "Suspend high-risk outdoor work",
+      "Activate flood response protocols for Z-05",
+      "Coordinate traffic management in Z-01",
+      "Coordinate traffic management in Z-05",
+      "Investigate route generation failure for Z-01 and Z-05",
+      "Recommend Bus Staging for Evacuation from Z-05"
+     ],
+     "shortTerm": [
+      "Initiate priority power restoration for CIRCUIT-Z-01",
+      "Evaluate alternative evacuation/shelter-in-place strategies"
+     ],
+     "nextPeriod": []
+    },
+    "conflictResolutions": [
+     {
+      "conflictId": "conf-shelter-z-01",
+      "decision": "The shelter agent's debate turn (tc-0d79438b-fa59-4406-8ea2-b3f4f974d714) confirmed that the designated shelters were not located within Z-01 or Z-05. This directly invalidates the prior allocation plan. The power agent's stance (PW-001) regarding Riverbend General Hospital's critical backup power status is a separate, higher-priority life-safety concern and is unaffected by the shelter location issue. The resolution acknowledges the lack of internal shelter capacity (SHL-001) and directs efforts towards external solutions while maintaining the hospital's power as paramount.",
+      "rationale": "The shelter agent's debate turn (tc-0d79438b-fa59-4406-8ea2-b3f4f974d714) confirmed that the designated shelters were not located within Z-01 or Z-05. This directly invalidates the prior allocation plan. The power agent's stance (PW-001) regarding Riverbend General Hospital's critical backup power status is a separate, higher-priority life-safety concern and is unaffected by the shelter location issue. The resolution acknowledges the lack of internal shelter capacity (SHL-001) and directs efforts towards external solutions while maintaining the hospital's power as paramount.",
+      "evidenceRefs": []
+     }
+    ],
+    "commsPlan": [
+     "publicAdvisories: [{'title': 'Heavy Rain, Flood Risk, and Power Outage Advisory', 'audience': 'Residents of Cedar Heights (Z-01) and Westbank (Z-05)', 'message': 'Heavy rain is expected in Cedar Heights (Z-01) and Westbank (Z-05) starting 2026-07-02T19:10:00. Westbank (Z-05) is at high risk of localized flooding. High winds (65 km/h) are present. Power outages are affecting both areas, with dark signalized intersections. Residents in low-lying areas should take precautions against localized flooding. Exercise extreme caution when driving due to dark signals and congestion. Stay indoors due to high winds until 2026-07-02T20:20:00.', 'timeWindow': 'immediate', 'sourceFindings': ['WX-001', 'WX-002', 'WX-003', 'PW-003', 'PW-004', 'TRAFFIC-001'], 'tier': 'needs_approval', 'evidence': [{'kind': 'tool_call', 'ref': 'tc-1a986c3e-e4f6-4d38-be81-6aa8d74090d2', 'summary': 'Heavy rain will arrive in Cedar Heights (Z-01) and Westbank (Z-05) at 2026-07-02T19:10:00, with a peak rainfall rate of 30 mm/hr and total accumulation of 60 mm expected.'}, {'kind': 'tool_call', 'ref': 'tc-197a846d-903f-4ac2-a449-0902c873ca64', 'summary': 'Wind gusts of 65 km/h are expected in Cedar Heights (Z-01) and Westbank (Z-05) until 2026-07-02T20:20:00.'}, {'kind': 'tool_call', 'ref': 'tc-7fb05b19-0416-4ce0-826e-cfeb7a984ba0', 'summary': 'Westbank (Z-05) has a high flood relevance, and a Flood Watch is in effect until 2026-07-02T23:10:00.'}, {'kind': 'tool_call', 'ref': 'tc-3f1d1a95-5d11-4bcb-9f10-5dcd02634ae1', 'summary': 'Signalized intersections in Z-01 and Z-05 are without power as of 2026-07-02T17:20:00.'}, {'kind': 'tool_call', 'ref': 'tc-b23ad966-764a-48dd-81f4-86c0195df011', 'summary': 'Corridors COR-RIVER-W and COR-MAIN-W show high congestion levels including dark-signal penalties in Z-01 and Z-05.'}]}]"
+    ],
+    "unresolvedRisks": [
+     "The inability to identify viable evacuation routes from Cedar Heights (Z-01) and Westbank (Z-05) (TRAFFIC-002, WX-004) leaves 66000 people, including 5280-6600 requiring shelter, without a clear and safe egress strategy, especially with heavy rain and potential flooding imminent.",
+     "A critical deficit in available shelter capacity (2020 beds vs. 5280-6600 people needing shelter per SHL-001) persists, exacerbated by the confirmed lack of suitable grid-powered shelters within the affected zones, posing a significant challenge for population safety.",
+     "The impact of ongoing high winds on power restoration timelines for Riverbend General Hospital (HOSP-RG) remains a risk if essential bucket-truck work is needed and cannot be safely completed before the wind advisory expires at 2026-07-02T20:20:00 and before the generator depletion at 2026-07-03T01:20:00 (PW-001, WX-002)."
+    ],
+    "assumptions": [
+     "The Power Restoration Team has sufficient resources and personnel to address both CIRCUIT-Z-05 and CIRCUIT-Z-01, allowing for prioritized restoration without critical delays.",
+     "The staged buses (BUS-1, BUS-2, BUS-3) can safely access Westbank (Z-05) and transport vulnerable individuals to external shelters once viable routes are identified or established by the CrisisGrid Operations team."
+    ],
+    "confidence": 0.9
+   }
+  }
+ },
+ {
+  "t": 183313,
+  "event": {
+   "type": "phase",
+   "phase": "comms"
+  }
+ },
+ {
+  "t": 199898,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "comms",
+   "tool": "comms_draft_public_alert",
+   "args": {
+    "scenarioId": "westside-cascade",
+    "channel": "sms",
+    "audience": "public",
+    "incidentId": "inc-21ae149b",
+    "body": "ALERT: Heavy rain expected Z-01 & Z-05 from 2026-07-02T19:10:00. Westbank (Z-05) high flood risk. Winds 65 km/h until 2026-07-02T20:20:00. Power outages & dark signals in Z-01 & Z-05. Exercise caution, limit travel, stay indoors due to wind. THIS IS A SIMULATED EXERCISE.",
+    "factsUsed": [
+     "WX-001",
+     "WX-003",
+     "WX-002",
+     "PW-003",
+     "PW-004",
+     "TRAFFIC-001"
+    ]
+   }
+  }
+ },
+ {
+  "t": 199899,
+  "event": {
+   "type": "agent.tool_call",
+   "agentId": "comms",
+   "tool": "comms_draft_internal_update",
+   "args": {
+    "scenarioId": "westside-cascade",
+    "audienceTeam": "Emergency Services",
+    "body": "Emergency Services: Critical update inc-21ae149b. Westbank (Z-05) faces high flood risk (FP-WEST-N activating, Flood Watch until 2026-07-02T23:10:00) with heavy rain from 2026-07-02T19:10:00 (WX-003, WX-001). Riverbend General Hospital (HOSP-RG) is on backup power, depleting by 2026-07-03T01:20:00 (PW-001). No viable evacuation routes from Z-01 or Z-05 identified (TRAFFIC-002). Shelter demand (5280-6600) significantly exceeds 2020 available beds (SHL-001). Evaluate alternative evacuation/shelter-in-place strategies and activate flood response protocols for Z-05.",
+    "incidentId": "inc-21ae149b"
+   }
+  }
+ },
+ {
+  "t": 199928,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "comms",
+   "tool": "comms_draft_public_alert",
+   "toolCallId": "tc-f64f5bc9-674f-4326-b4f2-c4fb0823146e"
+  }
+ },
+ {
+  "t": 199933,
+  "event": {
+   "type": "agent.tool_result",
+   "agentId": "comms",
+   "tool": "comms_draft_internal_update",
+   "toolCallId": "tc-2b504094-b598-4f90-9703-beac20ac575d"
+  }
+ },
+ {
+  "t": 201359,
+  "event": {
+   "type": "comms.drafts",
+   "raw": "{\"drafts\":[{\"draftId\":\"draft-7d6eb6e5-a847-4085-b78b-74aba0ba9b9f\",\"channel\":\"sms\",\"audience\":\"public\",\"validated\":true,\"urgency\":\"warning\",\"body\":\"ALERT: Heavy rain expected in Cedar Heights and Westbank starting around 7:10 PM. Riverbend General Hospital is on backup generators. Localized flooding likely along the riverside. Wind gusts up to 65 km/h. Dark traffic signals in affected areas. THIS IS A SIMULATED EXERCISE.\",\"createdAt\":\"2026-07-02T18:30:00\"},{\"draftId\":\"draft-50725818-9203-4c7d-bc3e-f285add3e648\",\"channel\":\"internal\",\"audience\":\"Emergency Services\",\"validated\":true,\"urgency\":\"high\",\"body\":\"Emergency Services update: Westbank faces high flood risk with heavy rain from 7:10 PM. Riverbend General Hospital is on backup generator power. No viable evacuation routes identified. Shelter demand exceeds available beds. Evaluate shelter-in-place strategies.\",\"createdAt\":\"2026-07-02T18:30:00\"}]}"
+  }
+ },
+ {
+  "t": 201411,
+  "event": {
+   "type": "phase",
+   "phase": "briefing"
+  }
+ },
+ {
+  "t": 212341,
+  "event": {
+   "type": "briefing.sections",
+   "sections": {
+    "executiveSummary": "Cedar Heights (Z-01) and Westbank (Z-05) are experiencing widespread power outages affecting 15125 customers, with Riverbend General Hospital (HOSP-RG) operating on backup power projected to deplete by 2026-07-03T01:20:00. Heavy rain is expected to begin at 2026-07-02T19:10:00, exacerbating a high flood risk in Westbank (Z-05) around floodplain FP-WEST-N. Furthermore, wind gusts of 65 km/h are restricting utility work until 2026-07-02T20:20:00. No viable evacuation routes have been identified for either zone, and available shelter capacity of 2020 beds is significantly less than the 5280-6600 people requiring shelter. The immediate plan prioritizes expediting power restoration to CIRCUIT-Z-05 to support Riverbend General Hospital (HOSP-RG), suspending high-risk outdoor utility work due to winds, and initiating an investigation into the failure to identify evacuation routes for Z-01 and Z-05.",
+    "outlook": "During the next operational period, efforts will focus on initiating priority power restoration for CIRCUIT-Z-01 and continuing to evaluate alternative evacuation and shelter-in-place strategies due to the confirmed lack of suitable shelters within the affected zones. A re-plan would be triggered if Riverbend General Hospital (HOSP-RG)'s backup power depletes before restoration, if viable evacuation routes cannot be established for Z-01 and Z-05, or if flood conditions in Westbank (Z-05) escalate beyond current projections, impacting critical infrastructure or safety.",
+    "evidence": [
+     {
+      "kind": "tool_call",
+      "ref": "PW-005",
+      "summary": "15125 customers affected by power outage."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "PW-001",
+      "summary": "Riverbend General Hospital (HOSP-RG) backup power depletion by 2026-07-03T01:20:00."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-1a986c3e-e4f6-4d38-be81-6aa8d74090d2",
+      "summary": "Heavy rain will arrive in Cedar Heights (Z-01) and Westbank (Z-05) at 2026-07-02T19:10:00."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-7fb05b19-0416-4ce0-826e-cfeb7a984ba0",
+      "summary": "Westbank (Z-05) has a high flood relevance, and a Flood Watch is in effect for floodplain FP-WEST-N."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "tc-197a846d-903f-4ac2-a449-0902c873ca64",
+      "summary": "Wind gusts of 65 km/h are expected in Cedar Heights (Z-01) and Westbank (Z-05) until 2026-07-02T20:20:00, restricting utility work."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "TRAFFIC-002",
+      "summary": "The `traffic_find_routes` tool is not returning any viable routes for evacuation from Z-01 and Z-05."
+     },
+     {
+      "kind": "tool_call",
+      "ref": "SHL-001",
+      "summary": "5280-6600 people require shelter, while only 2020 beds are available, with designated shelters not located within Z-01 or Z-05."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "t": 212390,
+  "event": {
+   "type": "run.complete",
+   "incidentId": "inc-21ae149b",
+   "findings": 15,
+   "conflicts": 1,
+   "debateTurns": 2,
+   "planRevision": 2,
+   "riskScore": 52.7
+  }
+ }
+]

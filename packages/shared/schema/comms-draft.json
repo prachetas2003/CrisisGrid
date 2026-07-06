@@ -1,0 +1,61 @@
+{
+  "$ref": "#/definitions/comms-draft",
+  "definitions": {
+    "comms-draft": {
+      "type": "object",
+      "properties": {
+        "draftId": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string",
+          "enum": [
+            "sms",
+            "social",
+            "email",
+            "internal"
+          ]
+        },
+        "audience": {
+          "type": "string"
+        },
+        "urgency": {
+          "type": "string",
+          "enum": [
+            "advisory",
+            "watch",
+            "warning"
+          ]
+        },
+        "body": {
+          "type": "string"
+        },
+        "factsUsed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "approvalRequired": {
+          "type": "boolean",
+          "const": true
+        },
+        "simulatedWatermark": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "draftId",
+        "channel",
+        "audience",
+        "urgency",
+        "body",
+        "factsUsed",
+        "approvalRequired",
+        "simulatedWatermark"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,434 @@
+{
+  "facilities": [
+    {
+      "id": "SUB-W1",
+      "kind": "substation",
+      "name": "West Substation 1",
+      "zone": "Z-01",
+      "lon": -122.71,
+      "lat": 45.5515,
+      "feeds": [
+        "Z-01",
+        "Z-05"
+      ]
+    },
+    {
+      "id": "SUB-W2",
+      "kind": "substation",
+      "name": "West Substation 2",
+      "zone": "Z-09",
+      "lon": -122.711,
+      "lat": 45.4945,
+      "feeds": [
+        "Z-09",
+        "Z-13"
+      ]
+    },
+    {
+      "id": "SUB-C1",
+      "kind": "substation",
+      "name": "Central Substation",
+      "zone": "Z-10",
+      "lon": -122.652,
+      "lat": 45.5025,
+      "feeds": [
+        "Z-02",
+        "Z-06",
+        "Z-10",
+        "Z-14"
+      ]
+    },
+    {
+      "id": "SUB-E1",
+      "kind": "substation",
+      "name": "East Substation",
+      "zone": "Z-07",
+      "lon": -122.608,
+      "lat": 45.5185,
+      "feeds": [
+        "Z-03",
+        "Z-04",
+        "Z-07",
+        "Z-08",
+        "Z-11",
+        "Z-12",
+        "Z-15",
+        "Z-16"
+      ]
+    },
+    {
+      "id": "HOSP-RG",
+      "kind": "hospital",
+      "name": "Riverbend General Hospital",
+      "zone": "Z-05",
+      "lon": -122.706,
+      "lat": 45.5255,
+      "beds": 420,
+      "backupGen": {
+        "fuelHours": 8
+      }
+    },
+    {
+      "id": "HOSP-SA",
+      "kind": "hospital",
+      "name": "St. Anne's Medical Center",
+      "zone": "Z-07",
+      "lon": -122.625,
+      "lat": 45.5265,
+      "beds": 310,
+      "backupGen": {
+        "fuelHours": 24
+      }
+    },
+    {
+      "id": "HOSP-EM",
+      "kind": "hospital",
+      "name": "Eastside Medical",
+      "zone": "Z-11",
+      "lon": -122.613,
+      "lat": 45.4955,
+      "beds": 180,
+      "backupGen": {
+        "fuelHours": 24
+      }
+    },
+    {
+      "id": "SHL-LHS",
+      "kind": "shelter",
+      "name": "Lincoln High School",
+      "zone": "Z-06",
+      "lon": -122.655,
+      "lat": 45.5285,
+      "capacity": 450,
+      "accessible": true,
+      "petFriendly": false
+    },
+    {
+      "id": "SHL-WCC",
+      "kind": "shelter",
+      "name": "Westside Community Center",
+      "zone": "Z-09",
+      "lon": -122.704,
+      "lat": 45.5015,
+      "capacity": 300,
+      "accessible": true,
+      "petFriendly": true
+    },
+    {
+      "id": "SHL-FGP",
+      "kind": "shelter",
+      "name": "Fairgrounds Pavilion",
+      "zone": "Z-07",
+      "lon": -122.611,
+      "lat": 45.5165,
+      "capacity": 800,
+      "accessible": true,
+      "petFriendly": true
+    },
+    {
+      "id": "SHL-CLB",
+      "kind": "shelter",
+      "name": "Central Library",
+      "zone": "Z-10",
+      "lon": -122.663,
+      "lat": 45.4995,
+      "capacity": 150,
+      "accessible": true,
+      "petFriendly": false
+    },
+    {
+      "id": "SHL-NGC",
+      "kind": "shelter",
+      "name": "Northgate Church",
+      "zone": "Z-02",
+      "lon": -122.656,
+      "lat": 45.5445,
+      "capacity": 200,
+      "accessible": false,
+      "petFriendly": false
+    },
+    {
+      "id": "SHL-DRC",
+      "kind": "shelter",
+      "name": "Delta Rec Center",
+      "zone": "Z-15",
+      "lon": -122.622,
+      "lat": 45.4765,
+      "capacity": 350,
+      "accessible": true,
+      "petFriendly": true
+    },
+    {
+      "id": "WTR-1",
+      "kind": "water",
+      "name": "Westside Pump Station",
+      "zone": "Z-09",
+      "lon": -122.69,
+      "lat": 45.4915
+    },
+    {
+      "id": "STG-1",
+      "kind": "staging",
+      "name": "Fairgrounds Overflow Lot",
+      "zone": "Z-07",
+      "lon": -122.609,
+      "lat": 45.5145
+    },
+    {
+      "id": "STG-2",
+      "kind": "staging",
+      "name": "Delta Staging Area",
+      "zone": "Z-15",
+      "lon": -122.614,
+      "lat": 45.4705
+    },
+    {
+      "id": "SIG-01",
+      "kind": "signal",
+      "name": "Signal Cedar Heights & 1st",
+      "zone": "Z-01",
+      "lon": -122.712,
+      "lat": 45.5395,
+      "corridorId": "COR-RIVER-W"
+    },
+    {
+      "id": "SIG-02",
+      "kind": "signal",
+      "name": "Signal Cedar Heights & 3rd",
+      "zone": "Z-01",
+      "lon": -122.703,
+      "lat": 45.5455,
+      "corridorId": "COR-RIVER-W"
+    },
+    {
+      "id": "SIG-03",
+      "kind": "signal",
+      "name": "Signal Cedar Heights & 5th",
+      "zone": "Z-01",
+      "lon": -122.694,
+      "lat": 45.5515,
+      "corridorId": "COR-RIVER-W"
+    },
+    {
+      "id": "SIG-04",
+      "kind": "signal",
+      "name": "Signal Westbank & 1st",
+      "zone": "Z-05",
+      "lon": -122.712,
+      "lat": 45.5145,
+      "corridorId": "COR-MAIN-W"
+    },
+    {
+      "id": "SIG-05",
+      "kind": "signal",
+      "name": "Signal Westbank & 3rd",
+      "zone": "Z-05",
+      "lon": -122.703,
+      "lat": 45.5205,
+      "corridorId": "COR-MAIN-W"
+    },
+    {
+      "id": "SIG-06",
+      "kind": "signal",
+      "name": "Signal Westbank & 5th",
+      "zone": "Z-05",
+      "lon": -122.694,
+      "lat": 45.5265,
+      "corridorId": "COR-MAIN-W"
+    },
+    {
+      "id": "SIG-07",
+      "kind": "signal",
+      "name": "Signal Old Mill & 1st",
+      "zone": "Z-09",
+      "lon": -122.712,
+      "lat": 45.4895,
+      "corridorId": "COR-SOUTH-W"
+    },
+    {
+      "id": "SIG-08",
+      "kind": "signal",
+      "name": "Signal Delta Flats & 1st",
+      "zone": "Z-13",
+      "lon": -122.712,
+      "lat": 45.4645,
+      "corridorId": "COR-SOUTH-W"
+    },
+    {
+      "id": "SIG-09",
+      "kind": "signal",
+      "name": "Signal Northgate & 1st",
+      "zone": "Z-02",
+      "lon": -122.672,
+      "lat": 45.5395,
+      "corridorId": "COR-CEDAR"
+    },
+    {
+      "id": "SIG-10",
+      "kind": "signal",
+      "name": "Signal Northgate & 3rd",
+      "zone": "Z-02",
+      "lon": -122.663,
+      "lat": 45.5455,
+      "corridorId": "COR-CEDAR"
+    },
+    {
+      "id": "SIG-11",
+      "kind": "signal",
+      "name": "Signal Highland Park & 1st",
+      "zone": "Z-03",
+      "lon": -122.632,
+      "lat": 45.5395,
+      "corridorId": "COR-EAST-N"
+    },
+    {
+      "id": "SIG-12",
+      "kind": "signal",
+      "name": "Signal Highland Park & 3rd",
+      "zone": "Z-03",
+      "lon": -122.623,
+      "lat": 45.5455,
+      "corridorId": "COR-EAST-N"
+    },
+    {
+      "id": "SIG-13",
+      "kind": "signal",
+      "name": "Signal Quarry Ridge & 1st",
+      "zone": "Z-04",
+      "lon": -122.592,
+      "lat": 45.5395
+    },
+    {
+      "id": "SIG-14",
+      "kind": "signal",
+      "name": "Signal Midtown & 1st",
+      "zone": "Z-06",
+      "lon": -122.672,
+      "lat": 45.5145,
+      "corridorId": "COR-MAIN-E"
+    },
+    {
+      "id": "SIG-15",
+      "kind": "signal",
+      "name": "Signal Midtown & 3rd",
+      "zone": "Z-06",
+      "lon": -122.663,
+      "lat": 45.5205,
+      "corridorId": "COR-MAIN-E"
+    },
+    {
+      "id": "SIG-16",
+      "kind": "signal",
+      "name": "Signal Midtown & 5th",
+      "zone": "Z-06",
+      "lon": -122.654,
+      "lat": 45.5265,
+      "corridorId": "COR-MAIN-E"
+    },
+    {
+      "id": "SIG-17",
+      "kind": "signal",
+      "name": "Signal Fairview & 1st",
+      "zone": "Z-07",
+      "lon": -122.632,
+      "lat": 45.5145,
+      "corridorId": "COR-EAST-N"
+    },
+    {
+      "id": "SIG-18",
+      "kind": "signal",
+      "name": "Signal Fairview & 3rd",
+      "zone": "Z-07",
+      "lon": -122.623,
+      "lat": 45.5205,
+      "corridorId": "COR-EAST-N"
+    },
+    {
+      "id": "SIG-19",
+      "kind": "signal",
+      "name": "Signal Eastgate & 1st",
+      "zone": "Z-08",
+      "lon": -122.592,
+      "lat": 45.5145
+    },
+    {
+      "id": "SIG-20",
+      "kind": "signal",
+      "name": "Signal Civic Center & 1st",
+      "zone": "Z-10",
+      "lon": -122.672,
+      "lat": 45.4895,
+      "corridorId": "COR-CENTRAL"
+    },
+    {
+      "id": "SIG-21",
+      "kind": "signal",
+      "name": "Signal Civic Center & 3rd",
+      "zone": "Z-10",
+      "lon": -122.663,
+      "lat": 45.4955,
+      "corridorId": "COR-CENTRAL"
+    },
+    {
+      "id": "SIG-22",
+      "kind": "signal",
+      "name": "Signal Lakeview & 1st",
+      "zone": "Z-11",
+      "lon": -122.632,
+      "lat": 45.4895,
+      "corridorId": "COR-EAST-S"
+    },
+    {
+      "id": "SIG-23",
+      "kind": "signal",
+      "name": "Signal Lakeview & 3rd",
+      "zone": "Z-11",
+      "lon": -122.623,
+      "lat": 45.4955,
+      "corridorId": "COR-EAST-S"
+    },
+    {
+      "id": "SIG-24",
+      "kind": "signal",
+      "name": "Signal Stonebrook & 1st",
+      "zone": "Z-12",
+      "lon": -122.592,
+      "lat": 45.4895
+    },
+    {
+      "id": "SIG-25",
+      "kind": "signal",
+      "name": "Signal Southport & 1st",
+      "zone": "Z-14",
+      "lon": -122.672,
+      "lat": 45.4645,
+      "corridorId": "COR-DELTA"
+    },
+    {
+      "id": "SIG-26",
+      "kind": "signal",
+      "name": "Signal Delta East & 1st",
+      "zone": "Z-15",
+      "lon": -122.632,
+      "lat": 45.4645,
+      "corridorId": "COR-EAST-S"
+    },
+    {
+      "id": "SIG-27",
+      "kind": "signal",
+      "name": "Signal Delta East & 3rd",
+      "zone": "Z-15",
+      "lon": -122.623,
+      "lat": 45.4705,
+      "corridorId": "COR-EAST-S"
+    },
+    {
+      "id": "SIG-28",
+      "kind": "signal",
+      "name": "Signal Southridge & 1st",
+      "zone": "Z-16",
+      "lon": -122.592,
+      "lat": 45.4645
+    }
+  ]
+}

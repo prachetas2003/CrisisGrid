@@ -1,0 +1,75 @@
+{
+  "$ref": "#/definitions/timeline-event",
+  "definitions": {
+    "timeline-event": {
+      "type": "object",
+      "properties": {
+        "tick": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "announcement": {
+          "type": "string"
+        },
+        "patches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "op": {
+                "type": "string",
+                "enum": [
+                  "set",
+                  "merge",
+                  "delete"
+                ]
+              },
+              "entityType": {
+                "type": "string",
+                "enum": [
+                  "outage",
+                  "corridor",
+                  "shelter",
+                  "facilityPower",
+                  "resourceUnit",
+                  "closure",
+                  "weather",
+                  "report311",
+                  "riskOverlay"
+                ]
+              },
+              "entityId": {
+                "type": "string"
+              },
+              "data": {
+                "type": "object",
+                "additionalProperties": {}
+              }
+            },
+            "required": [
+              "op",
+              "entityType",
+              "entityId"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "tick",
+        "id",
+        "type",
+        "announcement",
+        "patches"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

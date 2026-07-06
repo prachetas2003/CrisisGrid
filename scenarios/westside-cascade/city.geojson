@@ -1,0 +1,931 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.72,
+              45.56
+            ],
+            [
+              -122.67999999999999,
+              45.56
+            ],
+            [
+              -122.67999999999999,
+              45.535000000000004
+            ],
+            [
+              -122.72,
+              45.535000000000004
+            ],
+            [
+              -122.72,
+              45.56
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-01",
+        "name": "Cedar Heights",
+        "population": 34200,
+        "households": 14250,
+        "density": "medium",
+        "vulnerabilityIndex": {
+          "elderlyPct": 14,
+          "medDevicePct": 2.1,
+          "nonEnglishPct": 9,
+          "mobilityPct": 8
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.67999999999999,
+              45.56
+            ],
+            [
+              -122.63999999999999,
+              45.56
+            ],
+            [
+              -122.63999999999999,
+              45.535000000000004
+            ],
+            [
+              -122.67999999999999,
+              45.535000000000004
+            ],
+            [
+              -122.67999999999999,
+              45.56
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-02",
+        "name": "Northgate",
+        "population": 29800,
+        "households": 12417,
+        "density": "medium",
+        "vulnerabilityIndex": {
+          "elderlyPct": 11,
+          "medDevicePct": 1.6,
+          "nonEnglishPct": 12,
+          "mobilityPct": 7
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.64,
+              45.56
+            ],
+            [
+              -122.6,
+              45.56
+            ],
+            [
+              -122.6,
+              45.535000000000004
+            ],
+            [
+              -122.64,
+              45.535000000000004
+            ],
+            [
+              -122.64,
+              45.56
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-03",
+        "name": "Highland Park",
+        "population": 27400,
+        "households": 11417,
+        "density": "low",
+        "vulnerabilityIndex": {
+          "elderlyPct": 16,
+          "medDevicePct": 2.4,
+          "nonEnglishPct": 6,
+          "mobilityPct": 9
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.6,
+              45.56
+            ],
+            [
+              -122.55999999999999,
+              45.56
+            ],
+            [
+              -122.55999999999999,
+              45.535000000000004
+            ],
+            [
+              -122.6,
+              45.535000000000004
+            ],
+            [
+              -122.6,
+              45.56
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-04",
+        "name": "Quarry Ridge",
+        "population": 24600,
+        "households": 10250,
+        "density": "low",
+        "vulnerabilityIndex": {
+          "elderlyPct": 12,
+          "medDevicePct": 1.8,
+          "nonEnglishPct": 5,
+          "mobilityPct": 6
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.72,
+              45.535000000000004
+            ],
+            [
+              -122.67999999999999,
+              45.535000000000004
+            ],
+            [
+              -122.67999999999999,
+              45.510000000000005
+            ],
+            [
+              -122.72,
+              45.510000000000005
+            ],
+            [
+              -122.72,
+              45.535000000000004
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-05",
+        "name": "Westbank",
+        "population": 31800,
+        "households": 13250,
+        "density": "high",
+        "vulnerabilityIndex": {
+          "elderlyPct": 22,
+          "medDevicePct": 4.1,
+          "nonEnglishPct": 18,
+          "mobilityPct": 12
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.67999999999999,
+              45.535000000000004
+            ],
+            [
+              -122.63999999999999,
+              45.535000000000004
+            ],
+            [
+              -122.63999999999999,
+              45.510000000000005
+            ],
+            [
+              -122.67999999999999,
+              45.510000000000005
+            ],
+            [
+              -122.67999999999999,
+              45.535000000000004
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-06",
+        "name": "Midtown",
+        "population": 36200,
+        "households": 15083,
+        "density": "high",
+        "vulnerabilityIndex": {
+          "elderlyPct": 9,
+          "medDevicePct": 1.2,
+          "nonEnglishPct": 14,
+          "mobilityPct": 5
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.64,
+              45.535000000000004
+            ],
+            [
+              -122.6,
+              45.535000000000004
+            ],
+            [
+              -122.6,
+              45.510000000000005
+            ],
+            [
+              -122.64,
+              45.510000000000005
+            ],
+            [
+              -122.64,
+              45.535000000000004
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-07",
+        "name": "Fairview",
+        "population": 33400,
+        "households": 13917,
+        "density": "medium",
+        "vulnerabilityIndex": {
+          "elderlyPct": 13,
+          "medDevicePct": 1.9,
+          "nonEnglishPct": 10,
+          "mobilityPct": 7
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.6,
+              45.535000000000004
+            ],
+            [
+              -122.55999999999999,
+              45.535000000000004
+            ],
+            [
+              -122.55999999999999,
+              45.510000000000005
+            ],
+            [
+              -122.6,
+              45.510000000000005
+            ],
+            [
+              -122.6,
+              45.535000000000004
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-08",
+        "name": "Eastgate",
+        "population": 26800,
+        "households": 11167,
+        "density": "medium",
+        "vulnerabilityIndex": {
+          "elderlyPct": 10,
+          "medDevicePct": 1.4,
+          "nonEnglishPct": 11,
+          "mobilityPct": 6
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.72,
+              45.510000000000005
+            ],
+            [
+              -122.67999999999999,
+              45.510000000000005
+            ],
+            [
+              -122.67999999999999,
+              45.48500000000001
+            ],
+            [
+              -122.72,
+              45.48500000000001
+            ],
+            [
+              -122.72,
+              45.510000000000005
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-09",
+        "name": "Old Mill",
+        "population": 27600,
+        "households": 11500,
+        "density": "medium",
+        "vulnerabilityIndex": {
+          "elderlyPct": 18,
+          "medDevicePct": 3.2,
+          "nonEnglishPct": 15,
+          "mobilityPct": 11
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.67999999999999,
+              45.510000000000005
+            ],
+            [
+              -122.63999999999999,
+              45.510000000000005
+            ],
+            [
+              -122.63999999999999,
+              45.48500000000001
+            ],
+            [
+              -122.67999999999999,
+              45.48500000000001
+            ],
+            [
+              -122.67999999999999,
+              45.510000000000005
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-10",
+        "name": "Civic Center",
+        "population": 34800,
+        "households": 14500,
+        "density": "high",
+        "vulnerabilityIndex": {
+          "elderlyPct": 8,
+          "medDevicePct": 1.1,
+          "nonEnglishPct": 13,
+          "mobilityPct": 4
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.64,
+              45.510000000000005
+            ],
+            [
+              -122.6,
+              45.510000000000005
+            ],
+            [
+              -122.6,
+              45.48500000000001
+            ],
+            [
+              -122.64,
+              45.48500000000001
+            ],
+            [
+              -122.64,
+              45.510000000000005
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-11",
+        "name": "Lakeview",
+        "population": 31200,
+        "households": 13000,
+        "density": "medium",
+        "vulnerabilityIndex": {
+          "elderlyPct": 15,
+          "medDevicePct": 2.2,
+          "nonEnglishPct": 8,
+          "mobilityPct": 8
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.6,
+              45.510000000000005
+            ],
+            [
+              -122.55999999999999,
+              45.510000000000005
+            ],
+            [
+              -122.55999999999999,
+              45.48500000000001
+            ],
+            [
+              -122.6,
+              45.48500000000001
+            ],
+            [
+              -122.6,
+              45.510000000000005
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-12",
+        "name": "Stonebrook",
+        "population": 25400,
+        "households": 10583,
+        "density": "low",
+        "vulnerabilityIndex": {
+          "elderlyPct": 13,
+          "medDevicePct": 1.7,
+          "nonEnglishPct": 7,
+          "mobilityPct": 7
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.72,
+              45.485
+            ],
+            [
+              -122.67999999999999,
+              45.485
+            ],
+            [
+              -122.67999999999999,
+              45.46
+            ],
+            [
+              -122.72,
+              45.46
+            ],
+            [
+              -122.72,
+              45.485
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-13",
+        "name": "Delta Flats",
+        "population": 22400,
+        "households": 9333,
+        "density": "medium",
+        "vulnerabilityIndex": {
+          "elderlyPct": 17,
+          "medDevicePct": 2.8,
+          "nonEnglishPct": 16,
+          "mobilityPct": 10
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.67999999999999,
+              45.485
+            ],
+            [
+              -122.63999999999999,
+              45.485
+            ],
+            [
+              -122.63999999999999,
+              45.46
+            ],
+            [
+              -122.67999999999999,
+              45.46
+            ],
+            [
+              -122.67999999999999,
+              45.485
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-14",
+        "name": "Southport",
+        "population": 28600,
+        "households": 11917,
+        "density": "medium",
+        "vulnerabilityIndex": {
+          "elderlyPct": 12,
+          "medDevicePct": 1.5,
+          "nonEnglishPct": 12,
+          "mobilityPct": 6
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.64,
+              45.485
+            ],
+            [
+              -122.6,
+              45.485
+            ],
+            [
+              -122.6,
+              45.46
+            ],
+            [
+              -122.64,
+              45.46
+            ],
+            [
+              -122.64,
+              45.485
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-15",
+        "name": "Delta East",
+        "population": 26200,
+        "households": 10917,
+        "density": "medium",
+        "vulnerabilityIndex": {
+          "elderlyPct": 11,
+          "medDevicePct": 1.6,
+          "nonEnglishPct": 13,
+          "mobilityPct": 6
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.6,
+              45.485
+            ],
+            [
+              -122.55999999999999,
+              45.485
+            ],
+            [
+              -122.55999999999999,
+              45.46
+            ],
+            [
+              -122.6,
+              45.46
+            ],
+            [
+              -122.6,
+              45.485
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "zone",
+        "zoneId": "Z-16",
+        "name": "Southridge",
+        "population": 23800,
+        "households": 9917,
+        "density": "low",
+        "vulnerabilityIndex": {
+          "elderlyPct": 14,
+          "medDevicePct": 1.9,
+          "nonEnglishPct": 6,
+          "mobilityPct": 8
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.68,
+            45.56
+          ],
+          [
+            -122.679073,
+            45.555
+          ],
+          [
+            -122.678237,
+            45.55
+          ],
+          [
+            -122.677573,
+            45.545
+          ],
+          [
+            -122.677147,
+            45.54
+          ],
+          [
+            -122.677,
+            45.535
+          ],
+          [
+            -122.677147,
+            45.53
+          ],
+          [
+            -122.677573,
+            45.525
+          ],
+          [
+            -122.678237,
+            45.52
+          ],
+          [
+            -122.679073,
+            45.515
+          ],
+          [
+            -122.68,
+            45.51
+          ],
+          [
+            -122.680927,
+            45.505
+          ],
+          [
+            -122.681763,
+            45.5
+          ],
+          [
+            -122.682427,
+            45.495
+          ],
+          [
+            -122.682853,
+            45.49
+          ],
+          [
+            -122.683,
+            45.485
+          ],
+          [
+            -122.682853,
+            45.48
+          ],
+          [
+            -122.682427,
+            45.475
+          ],
+          [
+            -122.681763,
+            45.47
+          ],
+          [
+            -122.680927,
+            45.465
+          ],
+          [
+            -122.68,
+            45.46
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "river",
+        "name": "Riverbend River"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.68799999999999,
+              45.535000000000004
+            ],
+            [
+              -122.678,
+              45.535000000000004
+            ],
+            [
+              -122.678,
+              45.510000000000005
+            ],
+            [
+              -122.68799999999999,
+              45.510000000000005
+            ],
+            [
+              -122.68799999999999,
+              45.535000000000004
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "floodplain",
+        "floodplainId": "FP-WEST-N",
+        "returnPeriod": "100-year (approximation)",
+        "activationThresholdMmHr": 28,
+        "zones": [
+          "Z-05"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.68799999999999,
+              45.510000000000005
+            ],
+            [
+              -122.678,
+              45.510000000000005
+            ],
+            [
+              -122.678,
+              45.485
+            ],
+            [
+              -122.68799999999999,
+              45.485
+            ],
+            [
+              -122.68799999999999,
+              45.510000000000005
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "floodplain",
+        "floodplainId": "FP-WEST-S",
+        "returnPeriod": "100-year (approximation)",
+        "activationThresholdMmHr": 28,
+        "zones": [
+          "Z-09"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.68,
+          45.5475
+        ]
+      },
+      "properties": {
+        "kind": "bridge",
+        "bridgeId": "BR-CEDAR",
+        "name": "Cedar Bridge",
+        "corridorId": "COR-CEDAR"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.68,
+          45.5225
+        ]
+      },
+      "properties": {
+        "kind": "bridge",
+        "bridgeId": "BR-MAIN",
+        "name": "Main St Bridge",
+        "corridorId": "COR-MAIN-BRIDGE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.68,
+          45.4725
+        ]
+      },
+      "properties": {
+        "kind": "bridge",
+        "bridgeId": "BR-DELTA",
+        "name": "Delta Bridge",
+        "corridorId": "COR-DELTA"
+      }
+    }
+  ]
+}
