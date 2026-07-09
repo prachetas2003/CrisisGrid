@@ -1,8 +1,8 @@
 # Base image with Node 20 and Python 3.11 pre-installed
 FROM python:3.11-bullseye
 
-# Install Node.js 20
-RUN apt-get update && apt-get install -y curl && \
+# Node 20 + build tools (better-sqlite3 native module)
+RUN apt-get update && apt-get install -y curl build-essential && \
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists/*

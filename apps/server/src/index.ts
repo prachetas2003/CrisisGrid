@@ -97,7 +97,7 @@ runtimeRoutes(app, db);
 mapRoutes(app, db, engine);
 opsRoutes(app, db, scheduler);
 
-const port = Number(process.env.SERVER_PORT ?? 8080);
+const port = Number(process.env.SERVER_PORT ?? 18080);
 await app.listen({ port, host: "0.0.0.0" });
 broadcast({ type: "server.started", payload: { port } });
 

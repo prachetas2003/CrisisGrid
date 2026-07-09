@@ -20,7 +20,8 @@ if (existsSync(envPath)) {
   }
 }
 
-const apiPort = Number(process.env.SERVER_PORT ?? 8080);
+// Internal API port — never default to platform $PORT (that's the public web port).
+const apiPort = Number(process.env.SERVER_PORT ?? 18080);
 const webPort = Number(process.env.WEB_PORT ?? 5173);
 const apiProxy = {
   "/api": {
