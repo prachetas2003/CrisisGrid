@@ -1,13 +1,13 @@
-# Base image with Node 20 and Python 3.11 pre-installed
+# Base image with Python 3.11
 FROM python:3.11-bullseye
 
-# Node 20 + build tools (better-sqlite3 native module) + pnpm
+# Node 22 (built-in node:sqlite — no native better-sqlite3 binary needed in Docker)
 RUN apt-get update && apt-get install -y --no-install-recommends \
       curl \
       ca-certificates \
       gnupg \
       build-essential \
-    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && apt-get update \
     && apt-get install -y --no-install-recommends nodejs \
     && node --version \
@@ -28,8 +28,9 @@ COPY packages/engine/package.json ./packages/engine/
 COPY packages/mcp-server/package.json ./packages/mcp-server/
 COPY packages/cli/package.json ./packages/cli/
 
-# Install Node.js dependencies
-RUN pnpm install --frozen-lockfile
+# Install Node.js dependencies (allow better-sqlite3 native build for non-Docker dev)
+RUN pnpm install --frozen-lockfile \
+    && pnpm rebuild better-sqlite3
 
 # Copy the rest of the application
 COPY . .
