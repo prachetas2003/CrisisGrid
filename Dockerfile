@@ -1,14 +1,20 @@
 # Base image with Node 20 and Python 3.11 pre-installed
 FROM python:3.11-bullseye
 
-# Node 20 + build tools (better-sqlite3 native module)
-RUN apt-get update && apt-get install -y curl build-essential && \
-    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install pnpm globally
-RUN npm install -g pnpm
+# Node 20 + build tools (better-sqlite3 native module) + pnpm
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      curl \
+      ca-certificates \
+      gnupg \
+      build-essential \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends nodejs \
+    && node --version \
+    && npm --version \
+    && npm install -g pnpm \
+    && pnpm --version \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set up working directory
 WORKDIR /app
