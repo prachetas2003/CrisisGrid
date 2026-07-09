@@ -39,6 +39,8 @@ export default defineConfig({
   preview: {
     host: true,
     port: webPort,
+    // Railway/Render assign a public hostname; Vite preview blocks unknown hosts by default.
+    allowedHosts: true,
     // Required for Docker monolith: preview serves the built UI and proxies /api → Fastify.
     proxy: apiProxy,
   },
