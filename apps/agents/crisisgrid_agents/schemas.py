@@ -58,6 +58,45 @@ class Finding(BaseModel):
     expiresAt: Optional[str] = None
     carriedForward: bool = False
 
+    @model_validator(mode="before")
+    @classmethod
+    def normalize_finding(cls, value: object) -> object:
+        if not isinstance(value, dict):
+            return value
+        finding = dict(value)
+        finding["finding"] = normalize_text(finding.get("finding") or finding.get("summary") or "Finding")
+        finding["detail"] = normalize_text(
+            finding.get("detail") or finding.get("description") or finding["finding"]
+        )
+        evidence = finding.get("evidence")
+        if not isinstance(evidence, list) or len(evidence) == 0:
+            finding["evidence"] = [{
+                "kind": "assumption",
+                "ref": "schema-fill",
+                "summary": "Evidence was not provided by the model; treated as an assumption.",
+            }]
+        finding["assumptions"] = normalize_string_list(finding.get("assumptions"))
+        finding["affectedZones"] = normalize_string_list(finding.get("affectedZones") or finding.get("zones"))
+        return finding
+
+    @field_validator("severity", mode="before")
+    @classmethod
+    def normalize_severity(cls, value: object) -> object:
+        return normalize_severity(value)
+
+    @field_validator("confidence", mode="before")
+    @classmethod
+    def normalize_confidence(cls, value: object) -> object:
+        normalized = normalize_number(value)
+        if isinstance(normalized, int | float) and normalized > 1 and normalized <= 100:
+            return normalized / 100
+        return normalized
+
+    @field_validator("assumptions", "affectedZones", mode="before")
+    @classmethod
+    def normalize_string_lists(cls, value: object) -> object:
+        return normalize_string_list(value)
+
 
 class FindingList(BaseModel):
     findings: list[Finding] = Field(max_length=6)
@@ -140,10 +179,23 @@ class ConflictResolution(BaseModel):
 
     @model_validator(mode="before")
     @classmethod
-    def fill_decision(cls, value: object) -> object:
-        if isinstance(value, dict) and "decision" not in value:
-            value = {**value, "decision": value.get("rationale", "resolved")}
-        return value
+    def fill_missing_fields(cls, value: object) -> object:
+        if not isinstance(value, dict):
+            return value
+        filled = dict(value)
+        # LLMs often emit only one of decision/rationale; keep both populated.
+        if not filled.get("decision"):
+            filled["decision"] = filled.get("rationale") or filled.get("resolution") or "resolved"
+        if not filled.get("rationale"):
+            filled["rationale"] = (
+                filled.get("decision")
+                or filled.get("reason")
+                or filled.get("explanation")
+                or "Resolved during commander synthesis."
+            )
+        if not filled.get("conflictId"):
+            filled["conflictId"] = filled.get("id") or "conflict-unknown"
+        return filled
 
     @field_validator("evidenceRefs", mode="before")
     @classmethod
@@ -247,18 +299,185 @@ class SafetyReview(BaseModel):
     revisions: list[SafetyRevision] = []
     notes: str = ""
 
+    @field_validator("verdict", mode="before")
+    @classmethod
+    def normalize_verdict(cls, value: object) -> object:
+        if not isinstance(value, str):
+            return value
+        normalized = value.strip().lower().replace("-", "_").replace(" ", "_")
+        lookup = {
+            "approved": "approved",
+            "approve": "approved",
+            "ok": "approved",
+            "pass": "approved",
+            "passed": "approved",
+            "revise": "revise",
+            "revision": "revise",
+            "revisions_required": "revise",
+            "reject": "revise",
+            "rejected": "revise",
+            "fail": "revise",
+            "failed": "revise",
+        }
+        return lookup.get(normalized, normalized)
 
-def normalize_time_window(value: object) -> object:
+    @field_validator("notes", mode="before")
+    @classmethod
+    def normalize_notes(cls, value: object) -> object:
+        return normalize_text(value) if value is not None else ""
+
+    @model_validator(mode="before")
+    @classmethod
+    def normalize_revisions(cls, value: object) -> object:
+        if not isinstance(value, dict):
+            return value
+        review = dict(value)
+        revisions = review.get("revisions")
+        if revisions is None:
+            review["revisions"] = []
+        elif isinstance(revisions, dict):
+            review["revisions"] = [revisions]
+        elif isinstance(revisions, list):
+            fixed: list[dict[str, object]] = []
+            for item in revisions:
+                if isinstance(item, str):
+                    fixed.append({"issue": item, "requiredChange": item})
+                elif isinstance(item, dict):
+                    fixed.append({
+                        "issue": normalize_text(item.get("issue") or item.get("problem") or "Issue"),
+                        "requiredChange": normalize_text(
+                            item.get("requiredChange")
+                            or item.get("change")
+                            or item.get("fix")
+                            or item.get("issue")
+                            or "Revise the related action."
+                        ),
+                    })
+            review["revisions"] = fixed
+        return review
+
+
+def normalize_severity(value: object) -> object:
     if not isinstance(value, str):
         return value
-    compact = value.replace("-", "_").replace(" ", "_")
+    normalized = value.strip().lower().replace("-", "_").replace(" ", "_")
     lookup = {
-        "shortTerm": "short_term",
-        "short_term": "short_term",
-        "nextPeriod": "next_period",
-        "next_period": "next_period",
+        "info": "info",
+        "informational": "info",
+        "low": "low",
+        "medium": "medium",
+        "med": "medium",
+        "moderate": "medium",
+        "high": "high",
+        "critical": "critical",
+        "crit": "critical",
+        "severe": "critical",
     }
-    return lookup.get(compact, compact)
+    return lookup.get(normalized, normalized)
+
+
+def normalize_time_window(value: object) -> object:
+    """Coerce LLM timeWindow shapes into the closed TimeWindow enum.
+
+    Models commonly emit ISO start/end objects instead of the literals
+    `immediate` / `short_term` / `next_period`. Map those without failing
+    the whole plan parse.
+    """
+    if value is None or value is False:
+        return "immediate"
+
+    if isinstance(value, dict):
+        for key in ("timeWindow", "window", "phase", "label", "value", "name", "type"):
+            nested = value.get(key)
+            if isinstance(nested, str) and nested.strip():
+                return normalize_time_window(nested)
+
+        start = value.get("start") or value.get("from") or value.get("begin")
+        end = value.get("end") or value.get("to") or value.get("until")
+        if isinstance(start, str) or isinstance(end, str):
+            return classify_time_span(
+                start if isinstance(start, str) else None,
+                end if isinstance(end, str) else None,
+            )
+
+        # Fall through: unknown object → safer to act now than to drop the plan.
+        return "immediate"
+
+    if isinstance(value, (int, float)):
+        # Treat numeric hours-from-now as a rough phase bucket.
+        hours = float(value)
+        if hours <= 2:
+            return "immediate"
+        if hours <= 12:
+            return "short_term"
+        return "next_period"
+
+    if not isinstance(value, str):
+        return "immediate"
+
+    compact = value.strip().lower().replace("-", "_").replace(" ", "_")
+    if not compact:
+        return "immediate"
+
+    lookup = {
+        "immediate": "immediate",
+        "now": "immediate",
+        "asap": "immediate",
+        "urgent": "immediate",
+        "short": "short_term",
+        "shortterm": "short_term",
+        "short_term": "short_term",
+        "near_term": "short_term",
+        "nearterm": "short_term",
+        "soon": "short_term",
+        "next": "next_period",
+        "nextperiod": "next_period",
+        "next_period": "next_period",
+        "later": "next_period",
+        "long_term": "next_period",
+        "longterm": "next_period",
+    }
+    if compact in lookup:
+        return lookup[compact]
+
+    # CamelCase alias still used by some prompts / old drafts.
+    if value.strip() in {"shortTerm", "nextPeriod"}:
+        return "short_term" if value.strip() == "shortTerm" else "next_period"
+
+    # If the model wrote a free-text phrase, bucket by keywords.
+    if any(token in compact for token in ("immediate", "now", "asap", "0_2", "0-2")):
+        return "immediate"
+    if any(token in compact for token in ("short", "near", "2_6", "2-6", "hour")):
+        return "short_term"
+    if any(token in compact for token in ("next", "later", "long", "tomorrow", "period")):
+        return "next_period"
+
+    return "immediate"
+
+
+def classify_time_span(start: str | None, end: str | None) -> TimeWindow:
+    """Map an ISO start/end window onto immediate / short_term / next_period."""
+    from datetime import datetime
+
+    def parse_iso(raw: str | None) -> datetime | None:
+        if not raw:
+            return None
+        try:
+            return datetime.fromisoformat(raw.replace("Z", "+00:00").replace(" ", "T"))
+        except ValueError:
+            return None
+
+    start_dt = parse_iso(start)
+    end_dt = parse_iso(end)
+    if start_dt and end_dt:
+        hours = abs((end_dt - start_dt).total_seconds()) / 3600.0
+        if hours <= 2:
+            return "immediate"
+        if hours <= 12:
+            return "short_term"
+        return "next_period"
+    # Single timestamp or unparsable → act in the current period.
+    return "immediate"
 
 
 def normalize_tier(value: object) -> object:
@@ -355,8 +574,12 @@ def normalize_actions(value: object) -> object:
             or action.get("rationale")
             or action["title"]
         )
-        action["tier"] = action.get("tier") or action.get("safetyTier") or "needs_approval"
-        action["timeWindow"] = action.get("timeWindow") or action.get("phase") or "immediate"
+        action["tier"] = normalize_tier(
+            action.get("tier") or action.get("safetyTier") or "needs_approval"
+        )
+        action["timeWindow"] = normalize_time_window(
+            action.get("timeWindow") or action.get("phase") or action.get("window") or "immediate"
+        )
         action["targetTeam"] = (
             action.get("targetTeam")
             or action.get("team")

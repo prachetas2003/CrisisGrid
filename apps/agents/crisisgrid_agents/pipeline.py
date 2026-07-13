@@ -147,8 +147,8 @@ class AgentSession:
                 await asyncio.sleep(2 * (attempt + 1))
         raise RuntimeError("unreachable")
 
-    async def ask(self, prompt: str, model_cls: Type[T], retries: int = 1) -> T:
-        """Send prompt, parse JSON into model_cls; feed validation errors back once."""
+    async def ask(self, prompt: str, model_cls: Type[T], retries: int = 2) -> T:
+        """Send prompt, parse JSON into model_cls; feed validation errors back (default 2 retries)."""
         text = await self._send(prompt)
         for attempt in range(retries + 1):
             try:
@@ -161,7 +161,13 @@ class AgentSession:
                 )
                 text = await self._send(
                     "Your output failed schema validation. Fix these errors and respond "
-                    f"with ONLY the corrected JSON object:\n{str(err)[:1500]}"
+                    f"with ONLY the corrected JSON object.\n\n"
+                    "Rules that often break plans:\n"
+                    "- timeWindow must be exactly one of: \"immediate\", \"short_term\", \"next_period\" "
+                    "(never {start,end} objects)\n"
+                    "- tier must be exactly one of: \"safe\", \"needs_approval\", \"blocked\"\n"
+                    "- conflictResolutions entries need conflictId, decision, and rationale\n"
+                    f"\nValidation errors:\n{str(err)[:1500]}"
                 )
         raise RuntimeError("unreachable")
 
