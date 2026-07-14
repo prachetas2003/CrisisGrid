@@ -10,7 +10,7 @@
 
 ## What this is
 
-CrisisGrid is a simulated emergency operations dashboard for a fictional Portland-area city. You type what’s going wrong — power out, hospital on generators, storm incoming — and a team of Gemini agents pulls real numbers from a shared tool layer, catches each other’s mistakes, and queues the consequential actions for **you** to sign off.
+CrisisGrid is a simulated emergency operations dashboard for a fictional Portland-area city. You type what’s going wrong : power out, hospital on generators, storm incoming  and a team of Gemini agents pulls real numbers from a shared tool layer, catches each other’s mistakes, and queues the consequential actions for **you** to sign off.
 
 Nothing goes to real residents. Alerts land in a sandbox phone mockup. Dispatch is blocked by policy. Every claim is supposed to trace back to a tool call, not vibes.
 
