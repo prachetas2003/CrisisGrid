@@ -43,18 +43,24 @@ function BootSplash() {
 }
 
 function BootError({ message, retry }: { message: string; retry: () => void }) {
+  const localDev = typeof window !== "undefined" && /localhost|127\.0\.0\.1/.test(window.location.hostname);
   return (
     <div className="flex h-full items-center justify-center p-6">
       <div className="w-full max-w-lg rounded-2xl border border-edge bg-panel p-8">
         <div className="mb-3 flex items-center gap-2 text-alert">
           <Icon name="alert" size={20} />
-          <h1 className="text-base font-semibold">Can't reach the CrisisGrid server</h1>
+          <h1 className="text-base font-semibold">Service temporarily unavailable</h1>
         </div>
         <p className="mb-4 text-sm leading-relaxed text-mute">
-          The web app is running, but the API server didn't answer. Start everything with one command from the repo
-          root:
+          CrisisGrid couldn't load the live command picture from the API. This is usually a short outage or a
+          deploy that is still warming up — wait a moment and try again.
         </p>
-        <pre className="mb-4 rounded-lg bg-ink px-4 py-3 font-mono text-sm text-accent">pnpm dev</pre>
+        {localDev && (
+          <p className="mb-4 text-sm leading-relaxed text-mute">
+            Local development: start the stack from the repo root with{" "}
+            <code className="rounded bg-ink px-1.5 py-0.5 font-mono text-xs text-accent">pnpm dev</code>.
+          </p>
+        )}
         <p className="mb-5 break-all font-mono text-xs text-dim">{message}</p>
         <button
           onClick={retry}

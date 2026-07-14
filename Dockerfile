@@ -46,8 +46,8 @@ RUN pnpm build
 # Writable SQLite path for container runtime
 RUN mkdir -p /app/data
 
-# Expose the public web port (platforms map $PORT here via start.sh)
-EXPOSE 5173
+# Railway maps $PORT to this process (Fastify serves API + static UI)
+EXPOSE 8080
 
 # Make start.sh executable
 RUN chmod +x /app/start.sh

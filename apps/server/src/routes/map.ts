@@ -18,15 +18,46 @@ import { requireRole } from "../security/auth.js";
 const DEFAULT_SCENARIO_ID = "westside-cascade";
 
 export function mapRoutes(app: FastifyInstance, db: Db, engine: ScenarioEngine): void {
-  app.get("/api/map/snapshot", async (req) => {
+  app.get("/api/map/snapshot", async (req, reply) => {
     const query = z
       .object({
         scenarioId: z.string().default(DEFAULT_SCENARIO_ID),
         tick: z.coerce.number().int().min(0).optional(),
       })
       .parse(req.query);
-    await refreshLiveProviders(db, engine, query.scenarioId);
-    return buildMapSnapshot(db, engine, query.scenarioId, query.tick);
+    try {
+      req.log.info(
+        { scenarioId: query.scenarioId, tick: query.tick ?? null },
+        "map.snapshot request",
+      );
+      await refreshLiveProviders(db, engine, query.scenarioId);
+      const snapshot = buildMapSnapshot(db, engine, query.scenarioId, query.tick);
+      req.log.info(
+        {
+          scenarioId: snapshot.scenario.id,
+          tick: snapshot.tick,
+          entityCount: snapshot.state.entities.length,
+        },
+        "map.snapshot ok",
+      );
+      return snapshot;
+    } catch (error) {
+      req.log.error(
+        {
+          err: error,
+          scenarioId: query.scenarioId,
+          tick: query.tick ?? null,
+          message: error instanceof Error ? error.message : String(error),
+          stack: error instanceof Error ? error.stack : undefined,
+        },
+        "map.snapshot failed",
+      );
+      return reply.code(500).send({
+        error: "map.snapshot failed",
+        detail: error instanceof Error ? error.message : String(error),
+        scenarioId: query.scenarioId,
+      });
+    }
   });
 
   app.get("/api/map/layers", async (req) => {

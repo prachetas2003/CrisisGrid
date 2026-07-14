@@ -71,7 +71,6 @@ console.log("Setting environment variables on Railway…");
 railway("variables", "--set", `GOOGLE_API_KEY=${env.GOOGLE_API_KEY}`);
 railway("variables", "--set", "DEMO_MODE=true");
 railway("variables", "--set", "DATABASE_PATH=/app/data/crisisgrid.sqlite");
-railway("variables", "--set", "SERVER_PORT=18080");
 railway("variables", "--set", "AGENTS_PORT=8090");
 
 console.log("\nBuilding and deploying Docker image (5–10 min first time)…\n");
