@@ -1,15 +1,15 @@
 # Base image with Python 3.11
 FROM python:3.11-bullseye
 
-# Node 22 (built-in node:sqlite — no native better-sqlite3 binary needed in Docker)
+# Node 22 from official tarball (NodeSource apt repos often fail on Render)
+ARG NODE_VERSION=22.14.0
 RUN apt-get update && apt-get install -y --no-install-recommends \
       curl \
       ca-certificates \
-      gnupg \
+      xz-utils \
       build-essential \
-    && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends nodejs \
+    && curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" \
+         | tar -xJ -C /usr/local --strip-components=1 \
     && node --version \
     && npm --version \
     && npm install -g pnpm@9 \
