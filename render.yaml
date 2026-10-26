@@ -1,0 +1,23 @@
+# CrisisGrid on Render (Docker monolith).
+# Dashboard: New → Blueprint → connect prachetas2003/CrisisGrid
+#
+# Free web services sleep after ~15 min idle (cold start can take 1–3 min).
+# For a live demo, wake the URL a few minutes early, or use replay mode.
+
+services:
+  - type: web
+    name: crisisgrid
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: DEMO_MODE
+        value: "true"
+      - key: DATABASE_PATH
+        value: /app/data/crisisgrid.sqlite
+      - key: AGENTS_PORT
+        value: "8090"
+      - key: GOOGLE_API_KEY
+        sync: false

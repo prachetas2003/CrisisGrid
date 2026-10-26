@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-# Railway (and similar) inject PORT — Fastify listens on it and serves both
+# Railway / Render / Fly inject PORT — Fastify listens on it and serves both
 # /api/* and the built React app. Agents stay on an internal localhost port.
 export PORT=${PORT:-${WEB_PORT:-8080}}
 export SERVER_PORT=${PORT}
