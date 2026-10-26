@@ -1,25 +1,18 @@
-# Base image with Python 3.11
-FROM python:3.11-bullseye
+# Node comes from the official image (no apt / NodeSource — those fail on Render).
+FROM node:22-bookworm AS node
 
-# Node 22 from official tarball (NodeSource apt repos often fail on Render)
-ARG NODE_VERSION=22.14.0
-RUN apt-get update && apt-get install -y --no-install-recommends \
-      curl \
-      ca-certificates \
-      xz-utils \
-      build-essential \
-    && curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" \
-         | tar -xJ -C /usr/local --strip-components=1 \
-    && node --version \
-    && npm --version \
-    && npm install -g pnpm@9 \
-    && pnpm --version \
-    && rm -rf /var/lib/apt/lists/*
+FROM python:3.11-bookworm
 
-# Set up working directory
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+RUN ln -sf /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
+ && ln -sf /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx \
+ && npm install -g pnpm@9 \
+ && node --version \
+ && pnpm --version
+
 WORKDIR /app
 
-# Copy lock files and workspace configs
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 COPY apps/web/package.json ./apps/web/
 COPY apps/server/package.json ./apps/server/
@@ -28,29 +21,21 @@ COPY packages/engine/package.json ./packages/engine/
 COPY packages/mcp-server/package.json ./packages/mcp-server/
 COPY packages/cli/package.json ./packages/cli/
 
-# Install Node.js dependencies (allow better-sqlite3 native build for non-Docker dev)
-RUN pnpm install --frozen-lockfile \
-    && pnpm rebuild better-sqlite3
+# Skip native better-sqlite3 build — runtime uses Node 22 built-in node:sqlite
+RUN pnpm install --frozen-lockfile --ignore-scripts
 
-# Copy the rest of the application
 COPY . .
 
-# Set up Python virtual environment
 RUN python -m venv /app/apps/agents/.venv && \
     /app/apps/agents/.venv/bin/pip install --upgrade pip && \
     /app/apps/agents/.venv/bin/pip install google-adk mcp fastapi "uvicorn[standard]" httpx pydantic
 
-# Build all TypeScript projects and Vite application
 RUN pnpm build
 
-# Writable SQLite path for container runtime
 RUN mkdir -p /app/data
 
-# Railway maps $PORT to this process (Fastify serves API + static UI)
 EXPOSE 8080
 
-# Make start.sh executable
 RUN chmod +x /app/start.sh
 
-# Run start script
 CMD ["/app/start.sh"]
